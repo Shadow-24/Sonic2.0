@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head th:replace="master/master :: head">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<header th:replace="master/master :: header"></header>
+	<div class="container">
+		<div>
+			<div class="table-responsive">
+				<table class="table table-white">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Forma de Pago</th>
+							<th>Operación</th>
+							<th>Operación</th>
+						</tr>
+					</thead>
+					<tbody id="forma_pago-list">
+						<tr th:each="for:${listaForma_pagos}">
+							<td th:text="${for.idForma_Pago}"></td>
+							<td th:text="${for.Forma_Pago}"></td>
+
+							<td><a
+								th:href="@{/fforma_pagos/delete?id=}+${for.idForma_Pago}">
+									Eliminar </a></td>
+							<td><a
+								th:href="@{'/fforma_pagos/goupdate/'+${for.idForma_Pago}}">
+									Actualizar </a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
