@@ -8,13 +8,18 @@
 
 	<header th:replace="master/master :: header"></header>
 	<div class="container">
+		<br>
+		<div align="center"
+			style="font-family: 'Roboto Condensed', sans-serif; font-size: 150%">Registrar
+			Formas de Pago</div>
 		<div>
 			<form th:action="@{/fforma_pagos/save}" method="post"
 				th:object="${f}">
 
 				<div class="col-sm-12">
 					<label class="form-label">Forma de pago: </label> <input
-						type="text" th:field="*{Forma_Pago}" class="form-control"></input>
+						placeholder="Ejm: Efectivo" type="text" th:field="*{Forma_Pago}"
+						class="form-control"></input>
 				</div>
 
 				<br />
