@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head th:replace="master/master :: head">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<header th:replace="master/master :: header"></header>
+	<div class="container">
+		<div>
+			<div class="table-responsive">
+				<table class="table table-white">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Marca de instrumento</th>
+							<th>Operación</th>
+							<th>Operación</th>
+						</tr>
+					</thead>
+					<tbody id="marca_instrumento-list">
+						<tr th:each="mar:${listaMarca_instrumentos}">
+							<td th:text="${mar.idMarca_Instrumento}"></td>
+							<td th:text="${mar.Marca_Instrumento}"></td>
+
+							<td><a
+								th:href="@{/mmarca_instrumentos/delete?id=}+${mar.idMarca_Instrumento}">
+									Eliminar </a></td>
+							<td><a
+								th:href="@{'/mmarca_instrumentos/goupdate/'+${mar.idMarca_Instrumento}}">
+									Actualizar </a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
