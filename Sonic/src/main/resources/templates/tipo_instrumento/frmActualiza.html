@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="master/master :: head">
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<header th:replace="master/master :: header"></header>
+	<div class="container">
+		<div>
+			<form th:action="@{/ttipoinstrumentos/save}" method="post"
+				th:object="${tin}">
+
+
+				<div class="col-sm-12">
+					<label class="form-label">Id:</label> <input type="text"
+						th:field="*{idTipoInstrumento}" class="form-control"></input>
+				</div>
+
+				<div class="col-sm-12">
+					<label class="form-label">Tipo instrumento:</label> <input
+						type="text" th:field="*{NTipoInstrumento}" class="form-control"></input>
+				</div>
+
+				<div class="col-sm-12">
+					<input type="submit" value="Actualizar" class="btn btn-dark"></input>
+				</div>
+			</form>
+		</div>
+
+	</div>
+</body>
+</html>
