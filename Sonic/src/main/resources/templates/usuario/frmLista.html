@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="master/master :: head">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<header th:replace="master/master :: header"></header>
+	<div class="container">
+		<br>
+		<div align="center"
+			style="font-family: 'Roboto Condensed', sans-serif; font-size: 150%">Lista
+			de Usuarios</div>
+		<br>
+		<div>
+			<div class="table-responsive">
+				<table class="table table-white">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Usuario</th>
+							<th>Nombre</th>
+							<th>Apellido</th>
+							<th>Celular</th>
+							<th>Correo</th>
+							<th>Distrito</th>
+							<th>Direccion</th>
+							<th>Operaciones</th>
+						</tr>
+					</thead>
+					<tbody id="usuarios-list">
+						<tr th:each="li:${listaUsuarios}">
+							<td th:text="${li.CUsuario}"></td>
+							<td th:text="${li.NUserName}"></td>
+							<td th:text="${li.NNombre}"></td>
+							<td th:text="${li.NApellido}"></td>
+							<td th:text="${li.NumCelular}"></td>
+							<td th:text="${li.TCorreo}"></td>
+							<td th:text="${li.distrito.NDistrito}"></td>
+							<td th:text="${li.TDireccion}"></td>
+
+							<td><a
+								th:href="@{/uusuarios/delete?id=}+${li.CUsuario}">
+									Eliminar</a> <br> <a
+								th:href="@{'/uusuarios/goupdate/'+${li.CUsuario}}">
+									Actualizar </a></td>
+						</tr>
+					</tbody>
+				</table>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>
