@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="master/master :: head">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<header th:replace="master/master :: header"></header>
+	<div class="container">
+
+		<hr style="background-color: #fdfdfd;" />
+		<div
+			style="font-family: 'Roboto Condensed', sans-serif; font-size: 150%">Lista
+			de Tipos de Instrumentos</div>
+		<hr style="background-color: #fa251d;" />
+		<div>
+			<div class="table-responsive">
+				<table class="table table-white">
+					<thead>
+						<tr>
+							<th>id</th>
+							<th>Tipo de Instrumento</th>
+							<th>Opciones</th>
+						</tr>
+					</thead>
+					<tbody id="telefonos-list">
+						<tr th:each="ti:${listaTipoInstrumento}">
+							<td th:text="${ti.idTipoInstrumento}"></td>
+							<td th:text="${ti.NTipoInstrumento}"></td>
+
+							<td><a
+								th:href="@{/ttipoinstrumentos/delete?id=}+${ti.idTipoInstrumento}">
+									Eliminar</a> <br> <a
+								th:href="@{'/ttipoinstrumentos/goupdate/'+${ti.idTipoInstrumento}}">
+									Actualizar </a></td>
+
+						</tr>
+					</tbody>
+				</table>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>
