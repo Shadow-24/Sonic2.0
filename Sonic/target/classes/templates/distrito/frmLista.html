@@ -18,23 +18,17 @@
 							<th>Nombre</th>
 							<th>Operación</th>
 							<th>Operación</th>
-							
+
 						</tr>
 					</thead>
 					<tbody id="distritos-list">
 						<tr th:each="dis:${listaDistritos}">
 							<td th:text="${dis.CDistrito}"></td>
 							<td th:text="${dis.NDistrito}"></td>
-							<td>
-							<a th:href="@{/ddistritos/delete?id=}+${dis.CDistrito}">
-							Eliminar
-							</a>
-							</td>
-							<td>
-							<a th:href="@{'/ddistritos/goupdate/'+${dis.CDistrito}}">
-							Actualizar
-							</a>
-							</td>
+							<td><a th:href="@{/ddistritos/delete?id=}+${dis.CDistrito}">
+									Eliminar </a></td>
+							<td><a th:href="@{'/ddistritos/goupdate/'+${dis.CDistrito}}">
+									Actualizar </a></td>
 						</tr>
 					</tbody>
 				</table>
