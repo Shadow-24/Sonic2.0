@@ -7,6 +7,11 @@
 <body>
 	<header th:replace="master/master :: header"></header>
 	<div class="container">
+		<br>
+		<div align="center"
+			style="font-family: 'Roboto Condensed', sans-serif; font-size: 150%">Lista
+			de Marcas de Instrumentos</div>
+		<br>
 		<div>
 			<div class="table-responsive">
 				<table class="table table-white">
@@ -14,8 +19,7 @@
 						<tr>
 							<th>ID</th>
 							<th>Marca de instrumento</th>
-							<th>Operación</th>
-							<th>Operación</th>
+							<th>Operaciones</th>
 						</tr>
 					</thead>
 					<tbody id="marca_instrumento-list">
@@ -25,8 +29,7 @@
 
 							<td><a
 								th:href="@{/mmarca_instrumentos/delete?id=}+${mar.idMarca_Instrumento}">
-									Eliminar </a></td>
-							<td><a
+									Eliminar </a><br> <a
 								th:href="@{'/mmarca_instrumentos/goupdate/'+${mar.idMarca_Instrumento}}">
 									Actualizar </a></td>
 						</tr>

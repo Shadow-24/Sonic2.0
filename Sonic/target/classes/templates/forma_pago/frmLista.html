@@ -7,6 +7,11 @@
 <body>
 	<header th:replace="master/master :: header"></header>
 	<div class="container">
+		<br>
+		<div align="center"
+			style="font-family: 'Roboto Condensed', sans-serif; font-size: 150%">Lista
+			de Formas de Pago</div>
+		<br>
 		<div>
 			<div class="table-responsive">
 				<table class="table table-white">
@@ -14,8 +19,7 @@
 						<tr>
 							<th>ID</th>
 							<th>Forma de Pago</th>
-							<th>Operación</th>
-							<th>Operación</th>
+							<th>Operaciones</th>
 						</tr>
 					</thead>
 					<tbody id="forma_pago-list">
@@ -25,10 +29,10 @@
 
 							<td><a
 								th:href="@{/fforma_pagos/delete?id=}+${for.idForma_Pago}">
-									Eliminar </a></td>
-							<td><a
+									Eliminar </a><br> <a
 								th:href="@{'/fforma_pagos/goupdate/'+${for.idForma_Pago}}">
 									Actualizar </a></td>
+
 						</tr>
 					</tbody>
 				</table>
