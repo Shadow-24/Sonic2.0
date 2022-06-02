@@ -9,12 +9,15 @@
 
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<link
+	href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Condensed&display=swap"
+	rel="stylesheet">
 </head>
 <body>
 
 	<header th:fragment="header">
 
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<nav class="navbar navbar-expand-lg navbar-light bg-warning">
 			<div class="container-fluid">
 				<a class="navbar brand" href="#"><img alt=""
 					th:src="@{/images/logo_footer.png}" height="50" width="100" src=""></a>
@@ -31,7 +34,7 @@
 							class="nav-link dropdown-toggle" href="#"
 							id="navbarDropdownMenuLink" role="button"
 							data-bs-toggle="dropdown" aria-expanded="false"
-							style="color: #fdfdfd"> Forma de Pago </a>
+							style="font-weight: bold; color: #000000"> Forma de Pago </a>
 							<ul class="dropdown-menu"
 								aria-labelledby="navbarDropdownMenuLink">
 								<li><a class="dropdown-item" th:href="@{/fforma_pagos/new}">Registrar</a></li>
@@ -43,7 +46,8 @@
 							class="nav-link dropdown-toggle" href="#"
 							id="navbarDropdownMenuLink" role="button"
 							data-bs-toggle="dropdown" aria-expanded="false"
-							style="color: #fdfdfd"> Marca de instrumento </a>
+							style="font-weight: bold; color: #000000"> Marca de
+								instrumento </a>
 							<ul class="dropdown-menu"
 								aria-labelledby="navbarDropdownMenuLink">
 								<li><a class="dropdown-item"
@@ -56,7 +60,8 @@
 							class="nav-link dropdown-toggle" href="#"
 							id="navbarDropdownMenuLink" role="button"
 							data-bs-toggle="dropdown" aria-expanded="false"
-							style="color: #fdfdfd"> Tipo de Instrumento </a>
+							style="font-weight: bold; color: #000000"> Tipo de
+								Instrumento </a>
 							<ul class="dropdown-menu"
 								aria-labelledby="navbarDropdownMenuLink">
 								<li><a class="dropdown-item"
@@ -70,13 +75,23 @@
 							class="nav-link dropdown-toggle" href="#"
 							id="navbarDropdownMenuLink" role="button"
 							data-bs-toggle="dropdown" aria-expanded="false"
-							style="color: #fdfdfd"> Distrito </a>
+							style="font-weight: bold; color: #000000"> Distrito </a>
 							<ul class="dropdown-menu"
 								aria-labelledby="navbarDropdownMenuLink">
-								<li><a class="dropdown-item"
-									th:href="@{/ddistritos/new}">Registrar</a></li>
-								<li><a class="dropdown-item"
-									th:href="@{/ddistritos/list}">Listar</a></li>
+								<li><a class="dropdown-item" th:href="@{/ddistritos/new}">Registrar</a></li>
+								<li><a class="dropdown-item" th:href="@{/ddistritos/list}">Listar</a></li>
+
+							</ul></li>
+
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#"
+							id="navbarDropdownMenuLink" role="button"
+							data-bs-toggle="dropdown" aria-expanded="false"
+							style="font-weight: bold; color: #000000"> Usuario </a>
+							<ul class="dropdown-menu"
+								aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item" th:href="@{/uusuarios/new}">Registrar</a></li>
+								<li><a class="dropdown-item" th:href="@{/uusuarios/list}">Listar</a></li>
 
 							</ul></li>
 					</ul>
