@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="master/master :: head">
+<meta charset="ISO-8859-1">
+<title>Registro de Distritos</title>
+</head>
+<body>
+	<header th:replace="master/master :: header"></header>
+	<div class="container">
+		<div>
+			<form id="form-1" th:action="@{/ddistritos/update}" method="post"
+				th:object="${di}">
+				<br>
+				<p align="center" style="font-size: 20px">Registro de Distritos</p>
+				
+				
+				<div class="col-sm-12"><label class="form-label" for="input-1">Nombre:</label> <input
+					id="input-1" placeholder="Ejm: La Molina" class="form-control"
+					type="text" th:field="*{NDistrito}" /></div>
+				<br>
+				
+				<div class="col-sm-12">
+
+					<input type="submit" value="Registrar" id="button-1" class="btn btn-dark"/>
+
+				</div>
+
+			</form>
+		</div>
+	</div>
+</body>
+</html>
