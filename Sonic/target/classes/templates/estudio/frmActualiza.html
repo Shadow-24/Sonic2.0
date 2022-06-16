@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="master/master :: head">
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<header th:replace="master/master :: header"></header>
+	<div class="container">
+		<br>
+		<div align="center"
+			style="font-family: 'Roboto Condensed', sans-serif; font-size: 150%">Actualizar
+			Estudio</div>
+		<div>
+			<form th:action="@{/eestudios/save}" method="post" th:object="${est}">
+
+				<div class="col-sm-12">
+					<label class="form-label">ID:</label> <input type="text"
+						th:field="*{CEstudio}" class="form-control"></input>
+				</div>
+
+				<div class="col-sm-12">
+					<label class="form-label">Estudio:</label> <input type="text"
+						th:field="*{NEstudio}" class="form-control"></input>
+				</div>
+
+				<div class="col-sm-12">
+					<label class="form-label">Numero de Telefono:</label> <input
+						type="text" th:field="*{NumTelefono}" class="form-control"></input>
+				</div>
+
+				<div class="col-sm-12">
+					<label class="form-label">Distrito:</label> <select
+						name="selectDistrito" class="form-control"
+						th:field="*{distrito.CDistrito}">
+						<option th:each="d:${listaDistritos}" th:value="${d.CDistrito}"
+							th:text="${d.NDistrito}"
+							th:select="(${d.CDistrito}==*{distrito.CDistrito})"></option>
+					</select>
+				</div>
+
+				<div class="col-sm-12">
+					<label class="form-label">Estudio:</label> <input type="text"
+						th:field="*{TDireccion}" class="form-control"></input>
+				</div>
+				<br>
+				<div class="col-sm-12">
+					<input type="submit" value="Actualizar" class="btn btn-dark"></input>
+				</div>
+			</form>
+		</div>
+
+	</div>
+</body>
+</html>
