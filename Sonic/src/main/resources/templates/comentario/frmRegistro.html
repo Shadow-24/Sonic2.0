@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head th:replace="master/master :: head">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<header th:replace="master/master :: header"></header>
+	<div class="container">
+		<br>
+		<div align="center"
+			style="font-family: 'Roboto Condensed', sans-serif; font-size: 150%">Registrar
+			Comentario</div>
+		<div>
+			<form th:action="@{/ccomentarios/save}" method="post"
+				th:object="${co}">
+
+				<br> <label class="form-label">Comentario: </label>
+				<div class="col-sm-12">
+					<input type="text" th:field="*{TComentario}" class="form-control"></input>
+				</div>
+
+				<div class="col-sm-12">
+					<label class="form-label">Fecha: </label> <input type="date"
+						th:field="*{Fecha}" class="form-control"></input>
+				</div>
+
+				<div class="col-sm-12">
+					<label class="form-label">Usuario: </label> <select
+						name="selectUsuario" class="form-control"
+						th:field="*{usuario.CUsuario}">
+						<option th:each="u:${listaUsuarios}" th:value="${u.CUsuario}"
+							th:text="${u.NNombre}+' '+${u.NApellido}"
+							th:selected="(${u.CUsuario}==*{usuario.CUsuario})"></option>
+					</select>
+				</div>
+
+				<br>
+
+				<div class="col-sm-12">
+					<label class="form-label">Publicación: </label> <select
+						name="selectPublicacion" class="form-control"
+						th:field="*{publicacion.CPublicacion}">
+						<option th:each="p:${listaPublicaciones}"
+							th:value="${p.CPublicacion}" th:text="${p.TextPublicacion}"
+							th:selected="(${p.CPublicacion}==*{publicacion.CPublicacion})"></option>
+					</select>
+				</div>
+				<div class="col-sm-12">
+					<input type="submit" value="Registrar" class="btn btn-dark"></input>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

@@ -53,7 +53,7 @@ public class Forma_PagoController {
 			model.addAttribute("error", e.getMessage());
 		}
 
-		return "/forma_pago/frmLista";
+		return "forma_pago/frmLista";
 	}
 
 	@RequestMapping("/delete")
