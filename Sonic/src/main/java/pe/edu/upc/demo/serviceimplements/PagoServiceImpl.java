@@ -19,22 +19,17 @@ public class PagoServiceImpl implements IPagoService {
 	@Autowired
 	private IPagoRepository pagoRepository;
 
-	@Override
-	public void insert(Pago forma) {
-		// TODO Auto-generated method stub
-		pagoRepository.save(pago)
-	}
-
+	
 	@Override
 	public List<Pago> list() {
 		// TODO Auto-generated method stub
-		return null;
+		return pagoRepository.findAll();
 	}
 
 	@Override
 	public void delete(int idPago) {
 		// TODO Auto-generated method stub
-		
+		pagoRepository.deleteById(idPago);
 	}
 
 	@Override
@@ -47,6 +42,12 @@ public class PagoServiceImpl implements IPagoService {
 	public void update(Pago pago) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void insert(Pago pago) {
+		// TODO Auto-generated method stub
+		pagoRepository.save(pago);
 	}
 
 	

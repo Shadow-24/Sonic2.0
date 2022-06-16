@@ -15,9 +15,6 @@ public class Pago {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int idPago;
 	
-	@Column(name = "CPago", nullable=false)
-	private String CPago;
-	
 	@Column(name="CReserva", nullable=false)
 	private String CReserva;
 	
@@ -36,10 +33,9 @@ public class Pago {
 
 
 
-	public Pago(int idPago, String cPago, String cReserva, int qMonto, String cMetodo) {
+	public Pago(int idPago, String cReserva, int qMonto, String cMetodo) {
 		super();
 		this.idPago = idPago;
-		CPago = cPago;
 		CReserva = cReserva;
 		QMonto = qMonto;
 		CMetodo = cMetodo;
@@ -55,18 +51,6 @@ public class Pago {
 
 	public void setIdPago(int idPago) {
 		this.idPago = idPago;
-	}
-
-
-
-	public String getCPago() {
-		return CPago;
-	}
-
-
-
-	public void setCPago(String cPago) {
-		CPago = cPago;
 	}
 
 
@@ -104,6 +88,10 @@ public class Pago {
 	public void setCMetodo(String cMetodo) {
 		CMetodo = cMetodo;
 	}
+
+
+
+	
 	
 	
 	
