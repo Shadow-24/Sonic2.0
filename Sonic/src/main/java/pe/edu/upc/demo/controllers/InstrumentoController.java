@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import pe.edu.upc.demo.entities.Instrumento;
+import pe.edu.upc.demo.serviceinterfaces.IEstudioService;
 import pe.edu.upc.demo.serviceinterfaces.IInstrumentoService;
 import pe.edu.upc.demo.serviceinterfaces.IMarca_InstrumentoService;
 import pe.edu.upc.demo.serviceinterfaces.ITipoInstrumentoService;
@@ -29,12 +30,15 @@ public class InstrumentoController {
 	private IMarca_InstrumentoService marca_instrumentoService; 
 	@Autowired
 	private ITipoInstrumentoService tiService;
+	@Autowired
+	private IEstudioService eService;
 	
 	@GetMapping("/new")
 	public String newInstrumento(Model model) {
 		model.addAttribute("i", new Instrumento());
 		model.addAttribute("listaMarca_instrumentos",marca_instrumentoService.list());
 		model.addAttribute("listaTipoInstrumento",tiService.list());
+		model.addAttribute("listaEstudios",eService.list());
 		return "instrumento/frmRegistro";
 	}
 
@@ -86,6 +90,7 @@ public class InstrumentoController {
 		model.addAttribute("in", objForm.get());
 		model.addAttribute("listaMarca_instrumentos",marca_instrumentoService.list());
 		model.addAttribute("listaTipoInstrumento",tiService.list());
+		model.addAttribute("listaEstudios",eService.list());
 		return "instrumento/frmActualiza";
 	}
 
