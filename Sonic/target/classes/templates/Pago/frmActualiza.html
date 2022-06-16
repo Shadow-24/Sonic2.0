@@ -11,32 +11,32 @@
 		<br>
 		<div align="center"
 			style="font-family: 'Roboto Condensed', sans-serif; font-size: 150%">Registrar
-			de Instrumentos</div>
+			de Pago</div>
 		<div>
-			<form th:action="@{/iinstrumentos/save}" method="post"
-				th:object="${i}">
+			<form th:action="@{/ppagos/save}" method="post"
+				th:object="${p}">
 
 				<div class="col-sm-12">
 					<label class="form-label">Reserva: </label> <input
-						placeholder="Ejm: Bateria" type="text" th:field="*{NInstrumento}"
+						placeholder="" type="text" th:field="*{NInstrumento}"
 						class="form-control"></input>
 				</div>
 				
 				<div class="col-sm-12">
 					<label class="form-label">Monto: </label> <input
-						placeholder="Ejm: Bateria" type="text" th:field="*{NInstrumento}"
+						placeholder="" type="text" th:field="*{NInstrumento}"
 						class="form-control"></input>
 				</div>
 				
 				<div class="col-sm-12">
 					<label class="form-label">Método: </label> <input
-						placeholder="Ejm: Bateria" type="text" th:field="*{NInstrumento}"
+						placeholder="" type="text" th:field="*{NInstrumento}"
 						class="form-control"></input>
 				</div>
 
 				
 				<div class="col-sm-12">
-					<input type="submit" value="Registrar" class="btn btn-dark"></input>
+					<input type="submit" value="Actualizar" class="btn btn-dark"></input>
 				</div>
 
 			</form>
