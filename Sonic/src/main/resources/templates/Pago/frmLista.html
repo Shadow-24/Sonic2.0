@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org">
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
 <head th:replace="master/master :: head">
 <meta charset="UTF-8">
 <title>Lista de Pagos</title>
@@ -31,11 +33,9 @@
 							<td th:text="${pag.QMonto}"></td>
 							<td th:text="${pag.CMetodo}"></td>
 
-							<td><a
-								th:href="@{/ppagos/delete?id=}+${pag.idPago}">
+							<td><a th:href="@{/ppagos/delete?id=}+${pag.idPago}">
 									Eliminar </a><br> <a
-								th:href="@{'/ppagos/goupdate/'+${pag.idPago}}">
-									Actualizar </a></td>
+								th:href="@{'/ppagos/goupdate/'+${pag.idPago}}"> Actualizar </a></td>
 						</tr>
 					</tbody>
 				</table>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="master/master :: head">
 <meta charset="ISO-8859-1">
 <title>Registro de Distritos</title>
@@ -51,11 +52,9 @@
 
 				<div class="col-sm-12">
 					<label class="form-label">Distrito:</label> <select
-						name="selectDueño" class="form-control"
-						th:field="*{dueño.CDueño}">
+						name="selectDueño" class="form-control" th:field="*{dueño.CDueño}">
 						<option th:each="d:${listaDueños}" th:value="${d.CDueño}"
-							th:text="${d.NDueño}"
-							th:select="(${d.CDueño}==*{dueño.CDueño})"></option>
+							th:text="${d.NDueño}" th:select="(${d.CDueño}==*{dueño.CDueño})"></option>
 					</select>
 				</div>
 

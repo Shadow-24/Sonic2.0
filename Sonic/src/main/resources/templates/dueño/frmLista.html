@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="master/master :: head">
 <meta charset="ISO-8859-1">
 <title>Lista de Distritos</title>
@@ -23,7 +24,7 @@
 							<th>Distrito</th>
 							<th>Direccion</th>
 							<th>Operaciones</th>
-							
+
 						</tr>
 					</thead>
 					<tbody id="dueños-list">
@@ -36,16 +37,10 @@
 							<td th:text="${li.TCorreo}"></td>
 							<td th:text="${li.distrito.NDistrito}"></td>
 							<td th:text="${li.TDireccion}"></td>
-							<td>
-							<a th:href="@{/ddueños/delete?id=}+${due.CDueño}">
-							Eliminar
-							</a>
-							</td>
-							<td>
-							<a th:href="@{'/ddueños/goupdate/'+${due.CDueños}}">
-							Actualizar
-							</a>
-							</td>
+							<td><a th:href="@{/ddueños/delete?id=}+${due.CDueño}">
+									Eliminar </a></td>
+							<td><a th:href="@{'/ddueños/goupdate/'+${due.CDueños}}">
+									Actualizar </a></td>
 						</tr>
 					</tbody>
 				</table>

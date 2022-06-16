@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
 <head th:replace="master/master :: head">
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -20,7 +22,7 @@
 						placeholder="Ejm: Usuario" type="text" th:field="*{NUserName}"
 						class="form-control"></input>
 				</div>
-				
+
 				<div class="col-sm-12">
 					<label class="form-label">Contraseña:</label> <input
 						placeholder="Ejm: 1#a#a#" type="text" th:field="*{NPassword}"

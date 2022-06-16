@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org">
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="master/master :: head">
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -24,8 +25,8 @@
 
 				<br />
 				<div class="col-sm-12">
-					<label class="form-label">Marca:
-					</label> <select name="selectMarca_Instrumento" class="form-control"
+					<label class="form-label">Marca: </label> <select
+						name="selectMarca_Instrumento" class="form-control"
 						th:field="*{marca_Instrumento.idMarca_Instrumento}">
 						<option th:each="m: ${listaMarca_instrumentos}"
 							th:value="${m.idMarca_Instrumento}"
@@ -33,7 +34,7 @@
 							th:selected="(${m.idMarca_Instrumento} == *{marca_Instrumento.idMarca_Instrumento})"></option>
 					</select>
 				</div>
-				
+
 				<div class="col-sm-12">
 					<label class="form-label">Tipo de instrumento: </label> <select
 						name="selectTipoInstrumento" class="form-control"
@@ -44,13 +45,12 @@
 							th:selected="(${ti.idTipoInstrumento} == *{tipoInstrumento.idTipoInstrumento})"></option>
 					</select>
 				</div>
-				
+
 				<div class="col-sm-12">
 					<label class="form-label">Estudio: </label> <select
 						name="selectEstudio" class="form-control"
 						th:field="*{estudio.CEstudio}">
-						<option th:each="es: ${listaEstudios}"
-							th:value="${es.CEstudio}"
+						<option th:each="es: ${listaEstudios}" th:value="${es.CEstudio}"
 							th:text="${es.NEstudio}"
 							th:selected="(${es.CEstudio} == *{estudio.CEstudio})"></option>
 					</select>
