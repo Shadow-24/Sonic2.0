@@ -27,18 +27,23 @@ public class Instrumento {
 	@JoinColumn(name = "idTipoInstrumento")
 	private TipoInstrumento tipoInstrumento;
 
+	@ManyToOne
+	@JoinColumn(name = "CEstudio")
+	private Estudio estudio;
+
 	public Instrumento() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Instrumento(int idInstrumento, String instrumento, Marca_Instrumento marca_Instrumento,
-			TipoInstrumento tipoInstrumento) {
+	public Instrumento(int idInstrumento, String nInstrumento, Marca_Instrumento marca_Instrumento,
+			TipoInstrumento tipoInstrumento, Estudio estudio) {
 		super();
 		this.idInstrumento = idInstrumento;
-		this.NInstrumento = instrumento;
+		this.NInstrumento = nInstrumento;
 		this.marca_Instrumento = marca_Instrumento;
 		this.tipoInstrumento = tipoInstrumento;
+		this.estudio = estudio;
 	}
 
 	public int getIdInstrumento() {
@@ -72,6 +77,13 @@ public class Instrumento {
 	public void setTipoInstrumento(TipoInstrumento tipoInstrumento) {
 		this.tipoInstrumento = tipoInstrumento;
 	}
-	
-	
+
+	public Estudio getEstudio() {
+		return estudio;
+	}
+
+	public void setEstudio(Estudio estudio) {
+		this.estudio = estudio;
+	}
+
 }

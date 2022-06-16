@@ -21,6 +21,7 @@
 							<th>Instrumento</th>
 							<th>Marca</th>
 							<th>Tipo de instrumento</th>
+							<th>Estudio</th>
 							<th>Operaciones</th>
 						</tr>
 					</thead>
@@ -30,6 +31,7 @@
 							<td th:text="${ins.NInstrumento}"></td>
 							<td th:text="${ins.marca_Instrumento.Marca_Instrumento}"></td>
 							<td th:text="${ins.tipoInstrumento.NTipoInstrumento}"></td>
+							<td th:text="${ins.estudio.NEstudio}"></td>
 
 							<td><a
 								th:href="@{/iinstrumentos/delete?id=}+${ins.idInstrumento}">

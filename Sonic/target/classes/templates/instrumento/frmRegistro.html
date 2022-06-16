@@ -44,6 +44,17 @@
 							th:selected="(${ti.idTipoInstrumento} == *{tipoInstrumento.idTipoInstrumento})"></option>
 					</select>
 				</div>
+				
+				<div class="col-sm-12">
+					<label class="form-label">Estudio: </label> <select
+						name="selectEstudio" class="form-control"
+						th:field="*{estudio.CEstudio}">
+						<option th:each="es: ${listaEstudios}"
+							th:value="${es.CEstudio}"
+							th:text="${es.NEstudio}"
+							th:selected="(${es.CEstudio} == *{estudio.CEstudio})"></option>
+					</select>
+				</div>
 				<div class="col-sm-12">
 					<input type="submit" value="Registrar" class="btn btn-dark"></input>
 				</div>
