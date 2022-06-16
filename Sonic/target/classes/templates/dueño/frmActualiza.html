@@ -1,16 +1,18 @@
-
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="master/master :: head">
 <meta charset="ISO-8859-1">
-<title>Registro de Dueños</title>
+<title>Registro de Distritos</title>
 </head>
 <body>
 	<header th:replace="master/master :: header"></header>
 	<div class="container">
 		<div>
-			<form th:action="@{/ddueños/save}" method="post" th:object="${d}">
+			<form id="form-1" th:action="@{/ddueños/update}" method="post"
+				th:object="${di}">
 				<br>
+				<p align="center" style="font-size: 20px">Registro de Distritos</p>
+
 				<div class="col-sm-12">
 					<label class="form-label">Usuario:</label> <input
 						placeholder="Ejm: Usuario" type="text" th:field="*{NUserName}"
@@ -49,11 +51,14 @@
 
 				<div class="col-sm-12">
 					<label class="form-label">Distrito:</label> <select
-						name="selectDueño" class="form-control" th:field="*{dueño.CDueño}">
+						name="selectDueño" class="form-control"
+						th:field="*{dueño.CDueño}">
 						<option th:each="d:${listaDueños}" th:value="${d.CDueño}"
-							th:text="${d.NDueño}" th:select="(${d.CDueño}==*{dueño.CDueño})"></option>
+							th:text="${d.NDueño}"
+							th:select="(${d.CDueño}==*{dueño.CDueño})"></option>
 					</select>
 				</div>
+
 				<div class="col-sm-12">
 
 					<input type="submit" value="Registrar" id="button-1"
