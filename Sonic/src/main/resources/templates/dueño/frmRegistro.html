@@ -48,13 +48,6 @@
 				</div>
 
 				<div class="col-sm-12">
-					<label class="form-label">Distrito:</label> <select
-						name="selectDueño" class="form-control" th:field="*{dueño.CDueño}">
-						<option th:each="d:${listaDueños}" th:value="${d.CDueño}"
-							th:text="${d.NDueño}" th:select="(${d.CDueño}==*{dueño.CDueño})"></option>
-					</select>
-				</div>
-				<div class="col-sm-12">
 
 					<input type="submit" value="Registrar" id="button-1"
 						class="btn btn-dark" />
