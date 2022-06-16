@@ -7,21 +7,24 @@
 <body>
 	<header th:replace="master/master :: header"></header>
 	<div class="container">
+		<br>
+		<div align="center"
+			style="font-family: 'Roboto Condensed', sans-serif; font-size: 150%">Registro
+			de Distritos</div>
 		<div>
 			<form id="form-1" th:action="@{/ddistritos/save}" method="post"
-				th:object="${p}">
+				th:object="${d}">
+				<div class="col-sm-12">
+					<label class="form-label" for="input-1">Nombre del Distrito:</label> <input
+						id="input-1" placeholder="Ejm: La Molina" class="form-control"
+						type="text" th:field="*{NDistrito}" />
+				</div>
 				<br>
-				<p align="center" style="font-size: 20px">Registro de Distritos</p>
-				
-				
-				<div class="col-sm-12"><label class="form-label" for="input-1">Nombre:</label> <input
-					id="input-1" placeholder="Ejm: La Molina" class="form-control"
-					type="text" th:field="*{NDistrito}" /></div>
-				<br>
-				
+
 				<div class="col-sm-12">
 
-					<input type="submit" value="Registrar" id="button-1" class="btn btn-dark"/>
+					<input type="submit" value="Registrar" id="button-1"
+						class="btn btn-dark" />
 
 				</div>
 

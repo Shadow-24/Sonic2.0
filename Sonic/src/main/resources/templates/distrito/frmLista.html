@@ -1,40 +1,35 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="master/master :: head">
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Lista de Distritos</title>
 </head>
 <body>
 	<header th:replace="master/master :: header"></header>
 	<div class="container">
-
+		<br>
+		<div align="center"
+			style="font-family: 'Roboto Condensed', sans-serif; font-size: 150%">Lista
+			de Distritos</div>
+		<br>
 		<div>
-
 			<div class="table-responsive">
 				<table id="table-1" class="table table-white">
 					<thead>
 						<tr>
 							<th>ID</th>
-							<th>Nombre</th>
-							<th>Operación</th>
-							<th>Operación</th>
-							
+							<th>Distrito</th>
+							<th>Operaciones</th>
 						</tr>
 					</thead>
 					<tbody id="distritos-list">
 						<tr th:each="dis:${listaDistritos}">
 							<td th:text="${dis.CDistrito}"></td>
 							<td th:text="${dis.NDistrito}"></td>
-							<td>
-							<a th:href="@{/ddistritos/delete?id=}+${dis.CDistrito}">
-							Eliminar
-							</a>
-							</td>
-							<td>
-							<a th:href="@{'/ddistritos/goupdate/'+${dis.CDistrito}}">
-							Actualizar
-							</a>
-							</td>
+							<td><a th:href="@{/ddistritos/delete?id=}+${dis.CDistrito}">
+									Eliminar </a><br> <a
+								th:href="@{'/ddistritos/goupdate/'+${dis.CDistrito}}">
+									Actualizar </a></td>
 						</tr>
 					</tbody>
 				</table>
