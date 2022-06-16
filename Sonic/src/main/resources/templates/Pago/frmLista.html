@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head th:replace="master/master :: head">
+<meta charset="UTF-8">
+<title>Lista de Pagos</title>
+</head>
+<body>
+	<header th:replace="master/master :: header"></header>
+	<div class="container">
+		<br>
+		<div align="center"
+			style="font-family: 'Roboto Condensed', sans-serif; font-size: 150%">Lista
+			de Pagos</div>
+		<br>
+		<div>
+			<div class="table-responsive">
+				<table class="table table-white">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Reserva</th>
+							<th>Monto</th>
+							<th>Metodo</th>
+							<th>Operaciones</th>
+						</tr>
+					</thead>
+					<tbody id="pago-list">
+						<tr th:each="pag:${listaPagos}">
+							<td th:text="${pag.idPago}"></td>
+							<td th:text="${pag.CReserva}"></td>
+							<td th:text="${pag.QMonto}"></td>
+							<td th:text="${pag.CMetodo}"></td>
+
+							<td><a
+								th:href="@{/ppagos/delete?id=}+${pag.idPago}">
+									Eliminar </a><br> <a
+								th:href="@{'/ppagos/goupdate/'+${pag.idPago}}">
+									Actualizar </a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

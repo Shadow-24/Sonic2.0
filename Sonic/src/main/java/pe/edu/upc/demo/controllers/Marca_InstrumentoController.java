@@ -69,7 +69,7 @@ public class Marca_InstrumentoController {
 			model.put("error", e.getMessage());
 		}
 
-		return "marca_instrumento/frmLista";
+		return "redirect:/mmarca_instrumentos/new";
 	}
 
 	@RequestMapping("/goupdate/{id}")
