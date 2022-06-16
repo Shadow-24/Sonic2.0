@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="master/master :: head">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<header th:replace="master/master :: header"></header>
+	<div class="container">
+		<br>
+		<div align="center"
+			style="font-family: 'Roboto Condensed', sans-serif; font-size: 150%">Registrar
+			Usuario</div>
+		<div>
+			<form th:action="@{/uusuarios/save}" method="post" th:object="${u}">
+
+				<div class="col-sm-12">
+					<label class="form-label">Usuario:</label> <input
+						placeholder="Ejm: Usuario" type="text" th:field="*{NUserName}"
+						class="form-control"></input>
+				</div>
+				
+				<div class="col-sm-12">
+					<label class="form-label">Contraseña:</label> <input
+						placeholder="Ejm: 1#a#a#" type="text" th:field="*{NPassword}"
+						class="form-control"></input>
+				</div>
+
+				<div class="col-sm-12">
+					<label class="form-label">Nombre:</label> <input
+						placeholder="Ejm: Alex" type="text" th:field="*{NNombre}"
+						class="form-control"></input>
+				</div>
+
+				<div class="col-sm-12">
+					<label class="form-label">Apellido:</label> <input
+						placeholder="Ejm: Lujan" type="text" th:field="*{NApellido}"
+						class="form-control"></input>
+				</div>
+
+				<div class="col-sm-12">
+					<label class="form-label">Celular:</label> <input
+						placeholder="Ejm: 999888777" type="text" th:field="*{NumCelular}"
+						class="form-control"></input>
+				</div>
+
+				<div class="col-sm-12">
+					<label class="form-label">Correo:</label> <input
+						placeholder="Ejm: a@gmail.com" type="text" th:field="*{TCorreo}"
+						class="form-control"></input>
+				</div>
+
+				<div class="col-sm-12">
+					<label class="form-label">Distrito:</label> <select
+						name="selectDistrito" class="form-control"
+						th:field="*{distrito.CDistrito}">
+						<option th:each="d:${listaDistritos}" th:value="${d.CDistrito}"
+							th:text="${d.NDistrito}"
+							th:select="(${d.CDistrito}==*{distrito.CDistrito})"></option>
+					</select>
+				</div>
+
+				<div class="col-sm-12">
+					<label class="form-label">Direccion:</label> <input
+						placeholder="Ejm: Av.Angamos 123" type="text"
+						th:field="*{TDireccion}" class="form-control"></input>
+				</div>
+
+				<br>
+				<div class="col-sm-12">
+					<input type="submit" value="Registrar" class="btn btn-dark"></input>
+				</div>
+			</form>
+		</div>
+
+	</div>
+</body>
+</html>

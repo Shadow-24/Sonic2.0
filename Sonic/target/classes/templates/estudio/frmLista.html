@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="master/master :: head">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<header th:replace="master/master :: header"></header>
+	<div class="container">
+		<br>
+		<div align="center"
+			style="font-family: 'Roboto Condensed', sans-serif; font-size: 150%">Lista
+			de Estudios</div>
+		<br>
+		<div>
+			<div class="table-responsive">
+				<table class="table table-white">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Estudio</th>
+							<th>Telefono</th>
+							<th>Distrito</th>
+							<th>Direccion</th>
+							<th>Operaciones</th>
+						</tr>
+					</thead>
+					<tbody id="distritos-list">
+						<tr th:each="e:${listaEstudios}">
+							<td th:text="${e.CEstudio}"></td>
+							<td th:text="${e.NEstudio}"></td>
+							<td th:text="${e.NumTelefono}"></td>
+							<td th:text="${e.distrito.NDistrito}"></td>
+							<td th:text="${e.TDireccion}"></td>
+
+							<td><a th:href="@{/eestudios/delete?id=}+${e.CEstudio}">
+									Eliminar</a> <br> <a
+								th:href="@{'/eestudios/goupdate/'+${e.CEstudio}}">
+									Actualizar </a></td>
+
+						</tr>
+					</tbody>
+				</table>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>
