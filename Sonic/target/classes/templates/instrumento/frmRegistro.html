@@ -18,14 +18,16 @@
 
 				<div class="col-sm-12">
 					<label class="form-label">Instrumento: </label> <input
-						placeholder="Ejm: Bateria" type="text" th:field="*{NInstrumento}"
-						class="form-control"></input>
+						placeholder="Ejm: Bateria" required
+						oninvalid="this.setCustomValidity('Ingrese su nombre del instrumento')"
+						oninput="this.setCustomValidity('')" type="text"
+						pattern="[A-Za-z]" th:field="*{NInstrumento}" class="form-control"></input>
 				</div>
 
 				<br />
 				<div class="col-sm-12">
-					<label class="form-label">Marca:
-					</label> <select name="selectMarca_Instrumento" class="form-control"
+					<label class="form-label">Marca: </label> <select
+						name="selectMarca_Instrumento" class="form-control"
 						th:field="*{marca_Instrumento.idMarca_Instrumento}">
 						<option th:each="m: ${listaMarca_instrumentos}"
 							th:value="${m.idMarca_Instrumento}"
@@ -33,7 +35,7 @@
 							th:selected="(${m.idMarca_Instrumento} == *{marca_Instrumento.idMarca_Instrumento})"></option>
 					</select>
 				</div>
-				
+
 				<div class="col-sm-12">
 					<label class="form-label">Tipo de instrumento: </label> <select
 						name="selectTipoInstrumento" class="form-control"
@@ -44,13 +46,12 @@
 							th:selected="(${ti.idTipoInstrumento} == *{tipoInstrumento.idTipoInstrumento})"></option>
 					</select>
 				</div>
-				
+
 				<div class="col-sm-12">
 					<label class="form-label">Estudio: </label> <select
 						name="selectEstudio" class="form-control"
 						th:field="*{estudio.CEstudio}">
-						<option th:each="es: ${listaEstudios}"
-							th:value="${es.CEstudio}"
+						<option th:each="es: ${listaEstudios}" th:value="${es.CEstudio}"
 							th:text="${es.NEstudio}"
 							th:selected="(${es.CEstudio} == *{estudio.CEstudio})"></option>
 					</select>
@@ -58,7 +59,7 @@
 				<div class="col-sm-12">
 					<input type="submit" value="Registrar" class="btn btn-dark"></input>
 				</div>
-
+				<p th:text="${mensaje}" class="form-text text-danger"></p>
 			</form>
 		</div>
 	</div>

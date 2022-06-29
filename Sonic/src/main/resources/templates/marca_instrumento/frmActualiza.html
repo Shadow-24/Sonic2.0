@@ -23,7 +23,10 @@
 
 				<div class="col-sm-12">
 					<label class="form-label">Marca de instrumento: </label> <input
-						type="text" th:field="*{Marca_Instrumento}" class="form-control"></input>
+						required
+						oninvalid="this.setCustomValidity('Ingrese la marca del instrumento')"
+						oninput="this.setCustomValidity('')" type="text" pattern="[A-Za-z]"
+						th:field="*{Marca_Instrumento}" class="form-control"></input>
 				</div>
 
 				<br />
