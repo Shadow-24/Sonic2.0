@@ -15,4 +15,6 @@ public interface IMarca_InstrumentoService {
 	Optional<Marca_Instrumento> listId(int idMarca_Instrumento);
 
 	public void update(Marca_Instrumento form_page);
+	
+	public List<String[]>instrumentoMarca();
 }
