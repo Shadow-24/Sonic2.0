@@ -21,31 +21,27 @@
 					<thead>
 						<tr>
 							<th>ID</th>
+							<th>ID Musico</th>
+							<th>Estudio</th>
 							<th>Fecha</th>
-							<th>Musico</th>
 							<th>Cantidad de Horas</th>
 							<th>Cantidad de Personas</th>
-							<th>Código de Pago</th>
-							<th>Código de Estudio</th>
-							<th>Operaciones</th>
 							<th>Operaciones</th>
 						</tr>
 					</thead>
 					<tbody id="reserva-list">
 						<tr th:each="r:${listaReservas}">
 							<td th:text="${r.CReserva}"></td>
+							<td th:text="${r.musico.CMusico}"></td>
+							<td th:text="${r.estudio.NEstudio}"></td>
 							<td th:text="${#dates.format(r.Fecha,'dd/MM/yyyy')}"></td>
-							<td th:text="${r.usuario.NNombre}+' '+${r.usuario.NApellido}"></td>
 							<td th:text="${r.QCant_Horas}"></td>
 							<td th:text="${r.QCant_Personas}"></td>
-							<td th:text="${r.CPago}"></td>
-							<td th:text="${r.CEstudio}"></td>
 
 							<td><a th:href="@{/rreservas/delete?id=}+${r.CReserva}">
-									Eliminar </a><br></td>
-							<td><a th:href="@{'/rreservas/goupdate/'+${r.CReserva}}">
+									Eliminar </a><br> <a
+								th:href="@{'/rreservas/goupdate/'+${r.CReserva}}">
 									Actualizar </a></td>
-
 						</tr>
 					</tbody>
 				</table>

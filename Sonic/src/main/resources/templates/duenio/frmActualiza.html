@@ -1,47 +1,42 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org"
+<html xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="master/master :: head">
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Registro de Dueños</title>
 </head>
 <body>
-
 	<header th:replace="master/master :: header"></header>
 	<div class="container">
 		<br>
 		<div align="center"
-			style="font-family: 'Roboto Condensed', sans-serif; font-size: 150%">Actualizar
-			Músicos</div>
+			style="font-family: 'Roboto Condensed', sans-serif; font-size: 150%">Registrar
+			Dueño</div>
 		<div>
-			<form th:action="@{/mmusicos/update}" method="post"
-				th:object="${music}">
+			<form th:action="@{/dduenios/update}" method="post" th:object="${du}">
 
 				<div class="col-sm-12">
-					<label class="form-label">ID: </label> <input
-						placeholder="Musico" type="text" th:field="*{CMusico}"
-						class="form-control"></input>
+					<label class="form-label">ID:</label> <input type="text"
+						th:field="*{CDuenio}" class="form-control"></input>
 				</div>
 
 				<br>
-
 				<div class="col-sm-12">
-					<label class="form-label">Musico: </label> <select
+					<label class="form-label">Dueño: </label> <select
 						name="selectUsuario" class="form-control"
 						th:field="*{usuario.CUsuario}">
 						<option th:each="u:${listaUsuarios}" th:value="${u.CUsuario}"
-							th:text="${u.NNombre}+' '+${u.NApellido}"></option>
+							th:text="${u.NNombre}+' '+${u.NApellido}"
+							th:selected="(${u.CUsuario}==*{usuario.CUsuario})"></option>
 					</select>
 				</div>
 
 				<br>
-
 				<div class="col-sm-12">
-					<input type="submit" value="Actualizar" class="btn btn-dark"></input>
+					<input type="submit" value="Registrar" class="btn btn-dark"></input>
 				</div>
 			</form>
 		</div>
 	</div>
-
 </body>
 </html>

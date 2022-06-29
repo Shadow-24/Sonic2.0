@@ -15,71 +15,71 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import pe.edu.upc.demo.entities.Musico;
-import pe.edu.upc.demo.serviceinterfaces.IMusicoService;
+import pe.edu.upc.demo.entities.Duenio;
+import pe.edu.upc.demo.serviceinterfaces.IDuenioService;
 import pe.edu.upc.demo.serviceinterfaces.IUsuarioService;
 
 @Controller
-@RequestMapping("/mmusicos")
-public class MusicoController {
+@RequestMapping("/dduenios")
+public class DuenioController {
 	@Autowired
-	private IMusicoService musicoService;
+	private IDuenioService dueService;
 
 	@Autowired
 	private IUsuarioService usuarioService;
 
 	@GetMapping("/new")
-	public String newMusico(Model model) {
-		model.addAttribute("mu", new Musico());
+	public String newDuenio(Model model) {
+		model.addAttribute("d", new Duenio());
 		model.addAttribute("listaUsuarios", usuarioService.list());
-		return "/musico/frmRegistro";
+		return "/duenio/frmRegistro";
 	}
 
 	@PostMapping("/save")
-	public String saveMusico(@Valid Musico musico, BindingResult binRes, Model model) {
+	public String saveDuenio(@Valid Duenio du, BindingResult binRes, Model model) {
 		if (binRes.hasErrors()) {
-			return "musico/frmRegistro";
+			return "/duenio/frmRegistro";
 		} else {
-			musicoService.insert(musico);
+			dueService.insert(du);
 			model.addAttribute("mensaje", "Se registro correctamente");
-			return "redirect:/mmusicos/new";
+			return "redirect:/dduenios/list";
 		}
 	}
 
 	@GetMapping("/list")
-	public String listMusico(Model model) {
+	public String listDuenio(Model model) {
 		try {
-			model.addAttribute("listaMusicos", musicoService.list());
+			model.addAttribute("listaDuenios", dueService.list());
 		} catch (Exception e) {
 			model.addAttribute("error", e.getMessage());
 		}
-		return "/musico/frmLista";
+		return "/duenio/frmLista";
 	}
 
 	@RequestMapping("/delete")
-	public String deleteMusico(Map<String, Object> model, @RequestParam(value = "id") Integer id) {
+	public String deleteDuenio(Map<String, Object> model, @RequestParam(value = "id") Integer id) {
 		try {
 			if (id != null && id > 0) {
-				musicoService.delete(id);
-				model.put("listaMusicos", musicoService.list());
+				dueService.delete(id);
+				model.put("listaDuenios", dueService.list());
 			}
 		} catch (Exception e) {
 			model.put("error", e.getMessage());
 		}
-		return "musico/frmLista";
+		return "/duenio/frmLista";
 	}
 
 	@RequestMapping("/goupdate/{id}")
-	public String goUpdateMusico(@PathVariable int id, Model model) {
-		Optional<Musico> objMusico = musicoService.listId(id);
-		model.addAttribute("music", objMusico.get());
+	public String goUpdateDuenio(@PathVariable int id, Model model) {
+		Optional<Duenio> objDis = dueService.listId(id);
+		model.addAttribute("du", objDis.get());
 		model.addAttribute("listaUsuarios", usuarioService.list());
-		return "musico/frmActualiza";
+		return "duenio/frmActualiza";
 	}
 
 	@PostMapping("/update")
-	public String updateMusico(Musico musico) {
-		musicoService.update(musico);
-		return "redirect:/mmusicos/list";
+	public String updateDuenio(Duenio d) {
+		dueService.update(d);
+		return "redirect:/dduenios/list";
 	}
 }

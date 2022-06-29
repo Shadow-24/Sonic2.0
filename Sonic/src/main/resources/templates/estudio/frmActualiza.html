@@ -27,6 +27,16 @@
 				</div>
 
 				<div class="col-sm-12">
+					<label class="form-label">Duenio:</label> <select
+						name="selectDuenio" class="form-control"
+						th:field="*{duenio.CDuenio}">
+						<option th:each="d:${listaDuenios}" th:value="${d.CDuenio}"
+							th:text="${d.CDuenio}"
+							th:select="(${d.CDuenio}==*{duenio.CDuenio})"></option>
+					</select>
+				</div>
+
+				<div class="col-sm-12">
 					<label class="form-label">Numero de Telefono:</label> <input
 						type="text" th:field="*{NumTelefono}" class="form-control"></input>
 				</div>

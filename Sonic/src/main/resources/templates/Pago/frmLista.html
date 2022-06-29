@@ -20,22 +20,22 @@
 					<thead>
 						<tr>
 							<th>ID</th>
-							<th>Reserva</th>
-							<th>Monto</th>
+							<th>Codigo de Reserva</th>
 							<th>Metodo</th>
+							<th>Monto</th>
 							<th>Operaciones</th>
 						</tr>
 					</thead>
 					<tbody id="pago-list">
 						<tr th:each="pag:${listaPagos}">
-							<td th:text="${pag.idPago}"></td>
-							<td th:text="${pag.CReserva}"></td>
+							<td th:text="${pag.CPago}"></td>
+							<td th:text="${pag.reserva.CReserva}"></td>
+							<td th:text="${pag.forma_pago.Forma_Pago}"></td>
 							<td th:text="${pag.QMonto}"></td>
-							<td th:text="${pag.CMetodo}"></td>
 
-							<td><a th:href="@{/ppagos/delete?id=}+${pag.idPago}">
+							<td><a th:href="@{/ppagos/delete?id=}+${pag.CPago}">
 									Eliminar </a><br> <a
-								th:href="@{'/ppagos/goupdate/'+${pag.idPago}}"> Actualizar </a></td>
+								th:href="@{'/ppagos/goupdate/'+${pag.CPago}}"> Actualizar </a></td>
 						</tr>
 					</tbody>
 				</table>

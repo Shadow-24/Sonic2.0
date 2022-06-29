@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org"
+<html xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head th:replace="master/master :: head">
 <meta charset="UTF-8">
-<title>Lista de Pagos</title>
+<title>Insert title here</title>
 </head>
 <body>
 	<header th:replace="master/master :: header"></header>
@@ -12,7 +12,7 @@
 		<br>
 		<div align="center"
 			style="font-family: 'Roboto Condensed', sans-serif; font-size: 150%">Lista
-			de Pagos</div>
+			de Dueño</div>
 		<br>
 		<div>
 			<div class="table-responsive">
@@ -20,28 +20,24 @@
 					<thead>
 						<tr>
 							<th>ID</th>
-							<th>Codigo de Reserva</th>
-							<th>Metodo</th>
-							<th>Monto</th>
+							<th>Nombre del Dueño</th>
 							<th>Operaciones</th>
 						</tr>
 					</thead>
-					<tbody id="pago-list">
-						<tr th:each="pag:${listaPagos}">
-							<td th:text="${pag.CPago}"></td>
-							<td th:text="${pag.reserva.CReserva}"></td>
-							<td th:text="${pag.forma_pago.Forma_Pago}"></td>
-							<td th:text="${pag.QMonto}"></td>
+					<tbody id="duenios-list">
+						<tr th:each="du:${listaDuenios}">
+							<td th:text="${du.CDuenio}"></td>
+							<td th:text="${du.usuario.NNombre}+' '+${du.usuario.NApellido}"></td>
 
-							<td><a th:href="@{/ppagos/delete?id=}+${pag.CPago}">
-									Eliminar </a><br> <a
-								th:href="@{'/ppagos/goupdate/'+${pag.CPago}}"> Actualizar </a></td>
+							<td><a th:href="@{/dduenios/delete?id=}+${du.CDuenio}">
+									Eliminar </a><br>
+							<a th:href="@{'/dduenios/goupdate/'+${du.CDuenio}}">
+									Actualizar </a></td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 		</div>
 	</div>
-
 </body>
 </html>
