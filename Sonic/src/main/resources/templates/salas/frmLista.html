@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
 <head th:replace="master/master :: head">
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -31,8 +33,7 @@
 
 							<td><a th:href="@{/ssalas/delete?id=}+${s.CSalas}">
 									Eliminar</a> <br> <a
-								th:href="@{'/ssalas/goupdate/'+${s.CSalas}}">
-									Actualizar </a></td>
+								th:href="@{'/ssalas/goupdate/'+${s.CSalas}}"> Actualizar </a></td>
 
 						</tr>
 					</tbody>

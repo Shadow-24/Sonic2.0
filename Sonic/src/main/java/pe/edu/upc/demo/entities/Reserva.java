@@ -16,18 +16,21 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Entity
 @Table(name = "Reserva")
 public class Reserva {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int CReserva;
 
+	@ManyToOne
+	@JoinColumn(name = "CEstudio")
+	private Estudio estudio;
+
+	@ManyToOne
+	@JoinColumn(name = "CMusico")
+	private Musico musico;
+	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "Fecha", nullable = false)
 	private Date Fecha;
-
-	@ManyToOne
-	@JoinColumn(name = "CUsuario")
-	private Usuario usuario;
 
 	@Column(name = "QCant_Horas", nullable = false)
 	private int QCant_Horas;
@@ -35,29 +38,19 @@ public class Reserva {
 	@Column(name = "QCant_Personas", nullable = false)
 	private int QCant_Personas;
 
-	// queda para unir con la tabla pago
-	@Column(name = "CPago", nullable = false)
-	private int CPago;
-
-	// queda para unir con la tabla estudio
-	@Column(name = "CEstudio", nullable = false)
-	private int CEstudio;
-
 	public Reserva() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Reserva(int cReserva, Date fecha, Usuario usuario, int qCant_Horas, int qCant_Personas, int cPago,
-			int cEstudio) {
+	public Reserva(int cReserva, Estudio estudio, Musico musico, Date fecha, int qCant_Horas, int qCant_Personas) {
 		super();
 		CReserva = cReserva;
+		this.estudio = estudio;
+		this.musico = musico;
 		Fecha = fecha;
-		this.usuario = usuario;
 		QCant_Horas = qCant_Horas;
 		QCant_Personas = qCant_Personas;
-		CPago = cPago;
-		CEstudio = cEstudio;
 	}
 
 	public int getCReserva() {
@@ -68,20 +61,28 @@ public class Reserva {
 		CReserva = cReserva;
 	}
 
+	public Estudio getEstudio() {
+		return estudio;
+	}
+
+	public void setEstudio(Estudio estudio) {
+		this.estudio = estudio;
+	}
+
+	public Musico getMusico() {
+		return musico;
+	}
+
+	public void setMusico(Musico musico) {
+		this.musico = musico;
+	}
+
 	public Date getFecha() {
 		return Fecha;
 	}
 
 	public void setFecha(Date fecha) {
 		Fecha = fecha;
-	}
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
 	}
 
 	public int getQCant_Horas() {
@@ -99,21 +100,4 @@ public class Reserva {
 	public void setQCant_Personas(int qCant_Personas) {
 		QCant_Personas = qCant_Personas;
 	}
-
-	public int getCPago() {
-		return CPago;
-	}
-
-	public void setCPago(int cPago) {
-		CPago = cPago;
-	}
-
-	public int getCEstudio() {
-		return CEstudio;
-	}
-
-	public void setCEstudio(int cEstudio) {
-		CEstudio = cEstudio;
-	}
-
 }

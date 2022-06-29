@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="master/master :: head">
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -16,15 +17,7 @@
 			<form th:action="@{/mmusicos/save}" method="post" th:object="${mu}">
 
 				<div class="col-sm-12">
-					<label class="form-label">Musico: </label> <input
-						placeholder="Musico" type="text" th:field="*{CMusico}"
-						class="form-control"></input>
-				</div>
-
-				<br>
-
-				<div class="col-sm-12">
-					<label class="form-label">Usuario: </label> <select
+					<label class="form-label">Musico: </label> <select
 						name="selectUsuario" class="form-control"
 						th:field="*{usuario.CUsuario}">
 						<option th:each="u:${listaUsuarios}" th:value="${u.CUsuario}"

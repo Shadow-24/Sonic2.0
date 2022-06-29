@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
 <head th:replace="master/master :: head">
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -39,8 +41,7 @@
 							<td th:text="${li.distrito.NDistrito}"></td>
 							<td th:text="${li.TDireccion}"></td>
 
-							<td><a
-								th:href="@{/uusuarios/delete?id=}+${li.CUsuario}">
+							<td><a th:href="@{/uusuarios/delete?id=}+${li.CUsuario}">
 									Eliminar</a> <br> <a
 								th:href="@{'/uusuarios/goupdate/'+${li.CUsuario}}">
 									Actualizar </a></td>

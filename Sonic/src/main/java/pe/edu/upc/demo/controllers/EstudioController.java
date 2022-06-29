@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import pe.edu.upc.demo.entities.Estudio;
 import pe.edu.upc.demo.serviceinterfaces.IDistritoService;
+import pe.edu.upc.demo.serviceinterfaces.IDuenioService;
 import pe.edu.upc.demo.serviceinterfaces.IEstudioService;
 
 @Controller
@@ -28,10 +29,14 @@ public class EstudioController {
 	@Autowired
 	private IDistritoService dService;
 
+	@Autowired
+	private IDuenioService dueService;
+
 	@GetMapping("/new")
 	public String newEstudio(Model model) {
 		model.addAttribute("es", new Estudio());
 		model.addAttribute("listaDistritos", dService.list());
+		model.addAttribute("listaDuenios", dueService.list());
 		return "/estudio/frmRegistro";
 	}
 
@@ -74,6 +79,7 @@ public class EstudioController {
 		Optional<Estudio> objPer = estService.listId(id);
 		model.addAttribute("est", objPer.get());
 		model.addAttribute("listaDistritos", dService.list());
+		model.addAttribute("listaDuenios", dueService.list());
 		return "/estudio/frmActualiza";
 	}
 

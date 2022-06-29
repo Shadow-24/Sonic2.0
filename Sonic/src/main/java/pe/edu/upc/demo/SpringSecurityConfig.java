@@ -32,13 +32,13 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 		try {
 
 			http.authorizeRequests().antMatchers("/*.js", "/*.css").permitAll().antMatchers("/uusuarios/**").permitAll()
-					.antMatchers("/ccomentarios/**").access("hasRole('ROLE_MUSICO') or hasRole('ROLE_DUENIO')")
+					.antMatchers("/ccomentarios/**").access("hasRole('ROLE_MUSICO') or hasRole('ROLE_DUEÑO')")
 					.antMatchers("/ddistritos/**").access("hasRole('ROLE_ADMINISTRADOR')")
 					.antMatchers("/fforma_pagos/**")
-					.access("hasRole('ROLE_ADMINISTRADOR') or hasRole('ROLE_MUSICO') or hasRole('ROLE_DUENIO')")
+					.access("hasRole('ROLE_ADMINISTRADOR') or hasRole('ROLE_MUSICO') or hasRole('ROLE_DUEÑO')")
 					.antMatchers("/mmarca_instrumentos/**").access("hasRole('ROLE_ADMINISTRADOR')")
-					.antMatchers("/ppublicaciones/**").access("hasRole('ROLE_MUSICO') or hasRole('ROLE_DUENIO')")
-					.antMatchers("/rreservas/**").access("hasRole('ROLE_MUSICO') or hasRole('ROLE_DUENIO')")
+					.antMatchers("/ppublicaciones/**").access("hasRole('ROLE_MUSICO') or hasRole('ROLE_DUEÑO')")
+					.antMatchers("/rreservas/**").access("hasRole('ROLE_MUSICO') or hasRole('ROLE_DUEÑO')")
 					.antMatchers("/ttipoinstrumentos/**").access("hasRole('ROLE_ADMINISTRADOR')").and().formLogin()
 					.successHandler(successHandler).loginPage("/login").loginProcessingUrl("/login")
 					.defaultSuccessUrl("/fforma_pagos/new").permitAll().and().logout().logoutSuccessUrl("/login")

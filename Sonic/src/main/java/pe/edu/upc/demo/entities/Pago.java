@@ -5,96 +5,71 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "Pago")
 public class Pago {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int idPago;
-	
-	@Column(name="CReserva", nullable=false)
-	private String CReserva;
-	
-	@Column(name="QMonto", nullable=false)
-	private int QMonto;
-	
-	@Column(name="CMetodo", nullable=false)
-	private String CMetodo;
+	private int CPago;
 
-	
-	
+	@ManyToOne
+	@JoinColumn(name = "CReserva")
+	private Reserva reserva;
+
+	@ManyToOne
+	@JoinColumn(name = "idForma_Pago")
+	private Forma_Pago forma_pago;
+
+	@Column(name = "QMonto", nullable = false)
+	private int QMonto;
+
 	public Pago() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-
-
-	public Pago(int idPago, String cReserva, int qMonto, String cMetodo) {
+	public Pago(int cPago, Reserva reserva, Forma_Pago forma_pago, int qMonto) {
 		super();
-		this.idPago = idPago;
-		CReserva = cReserva;
+		CPago = cPago;
+		this.reserva = reserva;
+		this.forma_pago = forma_pago;
 		QMonto = qMonto;
-		CMetodo = cMetodo;
 	}
 
-
-
-	public int getIdPago() {
-		return idPago;
+	public int getCPago() {
+		return CPago;
 	}
 
-
-
-	public void setIdPago(int idPago) {
-		this.idPago = idPago;
+	public void setCPago(int cPago) {
+		CPago = cPago;
 	}
 
-
-
-	public String getCReserva() {
-		return CReserva;
+	public Reserva getReserva() {
+		return reserva;
 	}
 
-
-
-	public void setCReserva(String cReserva) {
-		CReserva = cReserva;
+	public void setReserva(Reserva reserva) {
+		this.reserva = reserva;
 	}
 
+	public Forma_Pago getForma_pago() {
+		return forma_pago;
+	}
 
+	public void setForma_pago(Forma_Pago forma_pago) {
+		this.forma_pago = forma_pago;
+	}
 
 	public int getQMonto() {
 		return QMonto;
 	}
 
-
-
 	public void setQMonto(int qMonto) {
 		QMonto = qMonto;
 	}
-
-
-
-	public String getCMetodo() {
-		return CMetodo;
-	}
-
-
-
-	public void setCMetodo(String cMetodo) {
-		CMetodo = cMetodo;
-	}
-
-
-
-	
-	
-	
-	
-	
-	
 }
