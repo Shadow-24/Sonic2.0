@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import pe.edu.upc.demo.entities.Usuario;
 import pe.edu.upc.demo.serviceinterfaces.IDistritoService;
+import pe.edu.upc.demo.serviceinterfaces.ITipoUsuarioService;
 import pe.edu.upc.demo.serviceinterfaces.IUsuarioService;
 
 @Controller
@@ -26,16 +27,19 @@ public class UsuarioController {
 	private IDistritoService dService;
 
 	@Autowired
+	private ITipoUsuarioService tuserService;
+	@Autowired
 	private IUsuarioService uService;
 
-	@RequestMapping("/new")
+	@GetMapping("/new")
 	public String newUsuario(Model model) {
 		model.addAttribute("u", new Usuario());
 		model.addAttribute("listaDistritos", dService.list());
+		model.addAttribute("listatipousuarios", tuserService.list());
 		return "usuario/frmRegistro";
 	}
 
-	@RequestMapping("/save")
+	@PostMapping("/save")
 	public String saveUsuario(@ModelAttribute Usuario objUsuario, BindingResult binRes, Model model)
 			throws ParseException {
 		if (binRes.hasErrors()) {

@@ -6,7 +6,7 @@
 </head>
 <body>
 
-	<header th:replace="master/master :: header"></header>
+	<header></header>
 	<div class="container">
 		<br>
 		<div align="center"
@@ -20,7 +20,7 @@
 						placeholder="Ejm: Usuario" type="text" th:field="*{NUserName}"
 						class="form-control"></input>
 				</div>
-				
+
 				<div class="col-sm-12">
 					<label class="form-label">Contraseña:</label> <input
 						placeholder="Ejm: 1#a#a#" type="text" th:field="*{NPassword}"
@@ -39,6 +39,17 @@
 						class="form-control"></input>
 				</div>
 
+
+				<div class="col-sm-12">
+					<label class="form-label">Rol: </label> <select
+						name="selectTipoUsuario" class="form-control"
+						th:field="*{tipo_user.idTipo_Usuario}">
+						<option th:each="t:${listatipousuarios}"
+							th:value="${t.idTipo_Usuario}" th:text="${t.nameTipo_Usuario}"
+							th:selected="(${t.idTipo_Usuario}==*{tipo_user.idTipo_Usuario})"></option>
+					</select>
+
+				</div>
 				<div class="col-sm-12">
 					<label class="form-label">Celular:</label> <input
 						placeholder="Ejm: 999888777" type="text" th:field="*{NumCelular}"
