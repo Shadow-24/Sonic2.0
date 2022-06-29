@@ -46,4 +46,10 @@ public class Marca_InstrumentoImpl implements IMarca_InstrumentoService {
 		marca_instrumentoRepository.save(form_page);
 	}
 
+	@Override
+	public List<String[]> instrumentoMarca() {
+		// TODO Auto-generated method stub
+		return marca_instrumentoRepository.instrumentoMarca();
+	}
+
 }
