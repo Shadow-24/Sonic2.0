@@ -33,12 +33,13 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
 			http.authorizeRequests().antMatchers("/*.js", "/*.css").permitAll().antMatchers("/uusuarios/**").permitAll()
 					.antMatchers("/ccomentarios/**").access("hasRole('ROLE_MUSICO') or hasRole('ROLE_DUENIO')")
-					.antMatchers("/ddistritos/**").access("hasRole('ROLE_ADMIN')").antMatchers("/fforma_pagos/**")
-					.access("hasRole('ROLE_ADMIN') or hasRole('ROLE_MUSICO') or hasRole('ROLE_DUENIO')")
-					.antMatchers("/mmarca_instrumentos/**").access("hasRole('ROLE_ADMIN')")
+					.antMatchers("/ddistritos/**").access("hasRole('ROLE_ADMINISTRADOR')")
+					.antMatchers("/fforma_pagos/**")
+					.access("hasRole('ROLE_ADMINISTRADOR') or hasRole('ROLE_MUSICO') or hasRole('ROLE_DUENIO')")
+					.antMatchers("/mmarca_instrumentos/**").access("hasRole('ROLE_ADMINISTRADOR')")
 					.antMatchers("/ppublicaciones/**").access("hasRole('ROLE_MUSICO') or hasRole('ROLE_DUENIO')")
 					.antMatchers("/rreservas/**").access("hasRole('ROLE_MUSICO') or hasRole('ROLE_DUENIO')")
-					.antMatchers("/ttipoinstrumentos/**").access("hasRole('ROLE_ADMIN')").and().formLogin()
+					.antMatchers("/ttipoinstrumentos/**").access("hasRole('ROLE_ADMINISTRADOR')").and().formLogin()
 					.successHandler(successHandler).loginPage("/login").loginProcessingUrl("/login")
 					.defaultSuccessUrl("/fforma_pagos/new").permitAll().and().logout().logoutSuccessUrl("/login")
 					.permitAll().and().exceptionHandling().accessDeniedPage("error");
