@@ -35,6 +35,10 @@ public class Usuario {
 	@Column(name = "NumCelular", length = 9, nullable = false)
 	private String NumCelular;
 
+	@ManyToOne
+	@JoinColumn(name = "idTipo_Usuario")
+	private Tipo_Usuario tipo_user;
+
 	@Column(name = "TCorreo", nullable = false)
 	private String TCorreo;
 
@@ -56,6 +60,14 @@ public class Usuario {
 		super();
 
 		roles = new ArrayList<Role>();
+	}
+
+	public Tipo_Usuario getTipo_user() {
+		return tipo_user;
+	}
+
+	public void setTipo_user(Tipo_Usuario tipo_user) {
+		this.tipo_user = tipo_user;
 	}
 
 	public int getCUsuario() {

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="master/master :: head">
+<head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="/css/login.css">
 <title>Insert title here</title>
 </head>
 <body>
@@ -12,13 +12,11 @@
 				<h1 class="mb-3">Login</h1>
 				<div class="txt_field">
 					<input type="text" name="username" id="username" required></input>
-					<span></span>
-					<label for="username">Username:</label> 
+					<span></span> <label for="username">Username:</label>
 				</div>
 				<div class="txt_field">
 					<input name="password" id="password" type="password" required></input>
-					<span></span>
-					<label for="password">Contraseña:</label>
+					<span></span> <label for="password">Contraseña:</label>
 				</div>
 				<button type="submit" class="btn btn-primary mb-2">Iniciar
 					Sesión</button>
