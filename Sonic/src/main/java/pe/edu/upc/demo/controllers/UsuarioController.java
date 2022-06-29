@@ -1,15 +1,15 @@
 package pe.edu.upc.demo.controllers;
 
+import java.text.ParseException;
 import java.util.Map;
 import java.util.Optional;
-
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,21 +28,22 @@ public class UsuarioController {
 	@Autowired
 	private IUsuarioService uService;
 
-	@GetMapping("/new")
+	@RequestMapping("/new")
 	public String newUsuario(Model model) {
 		model.addAttribute("u", new Usuario());
 		model.addAttribute("listaDistritos", dService.list());
-		return "/usuario/frmRegistro";
+		return "usuario/frmRegistro";
 	}
 
-	@PostMapping("/save")
-	public String saveUsuario(@Valid Usuario objUsuario, BindingResult binRes, Model model) {
+	@RequestMapping("/save")
+	public String saveUsuario(@ModelAttribute Usuario objUsuario, BindingResult binRes, Model model)
+			throws ParseException {
 		if (binRes.hasErrors()) {
-			return "/usuario/frmRegistro";
+			return "usuario/frmRegistro";
 		} else {
 			uService.insert(objUsuario);
 			model.addAttribute("mensaje", "Se registró correctamente");
-			return "redirect:/uusuarios/list";
+			return "redirect:/login";
 		}
 	}
 

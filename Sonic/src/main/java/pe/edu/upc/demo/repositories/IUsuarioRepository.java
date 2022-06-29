@@ -8,4 +8,5 @@ import pe.edu.upc.demo.entities.Usuario;
 @Repository
 public interface IUsuarioRepository extends JpaRepository<Usuario, Integer> {
 
+	Usuario findByNUserName(String username);
 }

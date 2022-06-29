@@ -1,22 +1,29 @@
 package pe.edu.upc.demo.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "Usuario")
+@Table(name = "Usuario", uniqueConstraints = @UniqueConstraint(columnNames = "NUserName"))
 public class Usuario {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int CUsuario;
 
-	@Column(name = "NUserName", length = 50, nullable = false)
+	@Column(name = "NUserName", nullable = false, unique = true)
 	private String NUserName;
 
 	@Column(name = "NNombre", length = 50, nullable = false)
@@ -28,36 +35,27 @@ public class Usuario {
 	@Column(name = "NumCelular", length = 9, nullable = false)
 	private String NumCelular;
 
-	@Column(name = "TCorreo", length = 50, nullable = false)
+	@Column(name = "TCorreo", nullable = false)
 	private String TCorreo;
 
-	@Column(name = "NPassword", length = 50, nullable = false)
+	@Column(name = "NPassword", nullable = false)
 	private String NPassword;
 
 	@ManyToOne
 	@JoinColumn(name = "CDistrito")
 	private Distrito distrito;
 
-	@Column(name = "TDireccion", length = 50, nullable = false)
+	@Column(name = "TDireccion", length = 60, nullable = false)
 	private String TDireccion;
+
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "user_id")
+	private List<Role> roles;
 
 	public Usuario() {
 		super();
-		// TODO Auto-generated constructor stub
-	}
 
-	public Usuario(int cUsuario, String nUserName, String nNombre, String nApellido, String numCelular, String tCorreo,
-			String nPassword, Distrito distrito, String tDireccion) {
-		super();
-		CUsuario = cUsuario;
-		NUserName = nUserName;
-		NNombre = nNombre;
-		NApellido = nApellido;
-		NumCelular = numCelular;
-		TCorreo = tCorreo;
-		NPassword = nPassword;
-		this.distrito = distrito;
-		TDireccion = tDireccion;
+		roles = new ArrayList<Role>();
 	}
 
 	public int getCUsuario() {
@@ -130,6 +128,14 @@ public class Usuario {
 
 	public void setTDireccion(String tDireccion) {
 		TDireccion = tDireccion;
+	}
+
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
 	}
 
 }

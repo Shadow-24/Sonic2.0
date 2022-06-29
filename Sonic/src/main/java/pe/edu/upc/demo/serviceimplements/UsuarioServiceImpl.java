@@ -4,9 +4,12 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import pe.edu.upc.demo.entities.Role;
 import pe.edu.upc.demo.entities.Usuario;
+import pe.edu.upc.demo.repositories.IRoleRepository;
 import pe.edu.upc.demo.repositories.IUsuarioRepository;
 import pe.edu.upc.demo.serviceinterfaces.IUsuarioService;
 
@@ -15,9 +18,25 @@ public class UsuarioServiceImpl implements IUsuarioService {
 	@Autowired
 	private IUsuarioRepository uRepository;
 
+	@Autowired
+	private IRoleRepository rolerepository;
+
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
+
 	@Override
 	public void insert(Usuario usuario) {
-		uRepository.save(usuario);
+
+		Usuario objUsuario = usuario;
+		objUsuario.setNPassword(passwordEncoder.encode(objUsuario.getNPassword()));
+
+		Role role = new Role();
+
+		role.setRole("ROLE_MUSICO");
+		role = rolerepository.save(role);
+
+		objUsuario.getRoles().add(role);
+		objUsuario = uRepository.save(objUsuario);
 	}
 
 	@Override
