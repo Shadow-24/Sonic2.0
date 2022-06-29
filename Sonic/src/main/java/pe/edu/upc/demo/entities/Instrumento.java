@@ -8,6 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "Instrumento")
@@ -16,6 +19,7 @@ public class Instrumento {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int idInstrumento;
 
+	@Pattern(regexp = "[^!\"#$%&'()*+,-./:;<=>?@^_`{|}~]+", message = "El nombre del INSTRUMENTO no puede contener caracteres especiales")
 	@Column(name = "NInstrumento", length = 20, nullable = false)
 	private String NInstrumento;
 

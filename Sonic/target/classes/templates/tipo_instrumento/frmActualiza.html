@@ -23,8 +23,11 @@
 				</div>
 
 				<div class="col-sm-12">
-					<label class="form-label">Tipo instrumento:</label> <input
-						type="text" th:field="*{NTipoInstrumento}" class="form-control"></input>
+					<label class="form-label">Tipo instrumento:</label> <input required
+						oninvalid="this.setCustomValidity('Ingrese el tipo del instrumento')"
+						oninput="this.setCustomValidity('')" type="text"
+						pattern="[A-Za-z]" th:field="*{NTipoInstrumento}"
+						class="form-control"></input>
 				</div>
 
 				<div class="col-sm-12">

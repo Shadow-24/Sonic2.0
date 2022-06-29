@@ -18,7 +18,10 @@
 
 				<div class="col-sm-12">
 					<label class="form-label">Marca de instrumento: </label> <input
-						placeholder="Ejm: Yamaha" type="text"
+						placeholder="Ejm: Yamaha" required
+						oninvalid="this.setCustomValidity('Ingrese la marca del instrumento')"
+						oninput="this.setCustomValidity('')" type="text" 
+						pattern="[A-Za-z]"
 						th:field="*{Marca_Instrumento}" class="form-control"></input>
 				</div>
 
