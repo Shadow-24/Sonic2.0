@@ -17,5 +17,5 @@ public interface IPublicacionService {
 
 	public void update(Publicacion publi);
 
-	public List<String[]> publicacionesxUsuario();
+	public List<String[]> comentariosxPublicacion();
 }

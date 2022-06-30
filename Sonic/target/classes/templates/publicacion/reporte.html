@@ -18,12 +18,12 @@
 				<table class="table table-white">
 					<thead>
 						<tr>
-							<th>Descripción de la Publicación</th>
-							<th>Texto</th>
+							<th>ID de la Publicación</th>
+							<th>Cantidad de comentarios</th>
 						</tr>
 					</thead>
 					<tbody id="publicacionxusuario-list">
-						<tr th:each="pbc:${listapublicacionesxusuario}">
+						<tr th:each="pbc:${listacomentariosxpublicacion}">
 							<td th:text="${pbc[0]}"></td>
 							<td th:text="${pbc[1]}"></td>
 

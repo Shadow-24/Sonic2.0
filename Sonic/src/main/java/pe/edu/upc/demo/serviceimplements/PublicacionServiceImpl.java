@@ -43,8 +43,8 @@ public class PublicacionServiceImpl implements IPublicacionService {
 	}
 
 	@Override
-	public List<String[]> publicacionesxUsuario() {
-		return publirepository.publicacionesxUsuario();
+	public List<String[]> comentariosxPublicacion() {
+		return publirepository.comentariosxPublicacion();
 	}
 
 }
