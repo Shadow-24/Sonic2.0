@@ -15,4 +15,6 @@ public interface ICalificacionService {
 	Optional<Calificacion> listId(int CCalificacion);
 
 	public void update(Calificacion calificacion);
+
+	public List<String[]> PromedioCalificacion();
 }

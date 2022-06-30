@@ -82,7 +82,16 @@
 					</ul>
 				</div>
 				
+      	<div class="btn-calificaciones"
+					sec:authorize="hasRole('ROLE_MUSICO') ">
+					<a th:href="@{/ccalificaciones/new}">Calificacion</a>
+				</div>
 				
+				<div class="btn-listacalificaciones"
+					sec:authorize="hasRole('ROLE_ADMINISTRADOR') or hasRole('ROLE_DUEÑO') ">
+					<a th:href="@{/ccalificaciones/list}">Lista de Calificaciones</a>
+					<a th:href="@{/ccalificaciones/reporte4}">Reporte de Calificaciones</a>
+				</div>
 
 				<div class="btn-distritos"
 					sec:authorize="hasRole('ROLE_ADMINISTRADOR')">
