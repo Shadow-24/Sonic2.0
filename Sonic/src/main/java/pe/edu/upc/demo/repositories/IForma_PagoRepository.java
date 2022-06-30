@@ -13,7 +13,7 @@ public interface IForma_PagoRepository extends JpaRepository<Forma_Pago, Integer
 
 	// report
 	@Query(value = "Select f.forma_pago, count(p.cpago) from forma_pago f join pago p "
-			+ "on f.idForma_Pago = p.idForma_Pago group by f.forma_pago", nativeQuery=true)
+			+ "on f.id_Forma_Pago = p.id_Forma_Pago group by f.forma_pago", nativeQuery=true)
 	
 	public List<String[]> pagoForma();
 }
