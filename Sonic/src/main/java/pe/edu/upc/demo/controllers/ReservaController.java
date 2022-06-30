@@ -16,9 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import pe.edu.upc.demo.entities.Reserva;
-import pe.edu.upc.demo.serviceinterfaces.IEstudioService;
-import pe.edu.upc.demo.serviceinterfaces.IMusicoService;
 import pe.edu.upc.demo.serviceinterfaces.IReservaService;
+import pe.edu.upc.demo.serviceinterfaces.IUsuarioService;
 
 @Controller
 @RequestMapping("/rreservas")
@@ -28,16 +27,12 @@ public class ReservaController {
 	private IReservaService reservaService;
 
 	@Autowired
-	private IMusicoService musicoService;
-
-	@Autowired
-	private IEstudioService estService;
+	private IUsuarioService usuarioService;
 
 	@GetMapping("/new")
 	public String newReserva(Model model) {
 		model.addAttribute("re", new Reserva());
-		model.addAttribute("listaMusicos", musicoService.list());
-		model.addAttribute("listaEstudios", estService.list());
+		model.addAttribute("listaUsuarios", usuarioService.list());
 		return "/reserva/frmRegistro";
 	}
 
@@ -68,6 +63,7 @@ public class ReservaController {
 			if (id != null && id > 0) {
 				reservaService.delete(id);
 				model.put("listaReservas", reservaService.list());
+
 			}
 		} catch (Exception e) {
 			model.put("error", e.getMessage());
@@ -79,8 +75,7 @@ public class ReservaController {
 	public String goUpdateReserva(@PathVariable int id, Model model) {
 		Optional<Reserva> objReserva = reservaService.listId(id);
 		model.addAttribute("reser", objReserva.get());
-		model.addAttribute("listaMusicos", musicoService.list());
-		model.addAttribute("listaEstudios", estService.list());
+		model.addAttribute("listaUsuarios", usuarioService.list());
 		return "reserva/frmActualiza";
 	}
 

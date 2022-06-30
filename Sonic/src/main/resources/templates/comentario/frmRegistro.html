@@ -34,7 +34,7 @@
 						name="selectUsuario" class="form-control"
 						th:field="*{usuario.CUsuario}">
 						<option th:each="u:${listaUsuarios}" th:value="${u.CUsuario}"
-							th:text="${u.NNombre}+' '+${u.NApellido}"
+							th:text="${u.NNombre}"
 							th:selected="(${u.CUsuario}==*{usuario.CUsuario})"></option>
 					</select>
 				</div>
@@ -52,6 +52,12 @@
 				</div>
 				<div class="col-sm-12">
 					<input type="submit" value="Registrar" class="btn btn-dark"></input>
+				</div>
+
+				<div class="col-sm-12">
+
+					<a th:href="@{/ccomentarios/list}" class="btn btn-dark">Mostrar
+						mis comentarios</a>
 				</div>
 			</form>
 		</div>
