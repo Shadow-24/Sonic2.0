@@ -11,8 +11,8 @@ import pe.edu.upc.demo.entities.Publicacion;
 @Repository
 public interface IPublicacionRepository extends JpaRepository<Publicacion, Integer> {
 
-	@Query(value = "Select p.desc_publicacion, p.text_publicacion from publicación p join usuario u "
-			+ "on p.CUsuario=u.CUsuario join role r on u.cusuario=r.user_id where u.cusuario = r.user_id group by p.desc_publicacion, p.text_publicacion", nativeQuery = true)
-	public List<String[]> publicacionesxUsuario();
+	@Query(value = "select p.CPublicacion , count(c.CComentario) from publicación p join comentario c "
+			+ "on p.CPublicacion = c.CPublicacion group by p.CPublicacion", nativeQuery = true)
+	public List<String[]> comentariosxPublicacion();
 
 }

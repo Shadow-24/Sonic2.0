@@ -24,7 +24,7 @@
 					<label class="form-label">Instrumento: </label> <input required
 						oninvalid="this.setCustomValidity('Ingrese su nombre del instrumento')"
 						oninput="this.setCustomValidity('')" type="text"
-						pattern="[A-Za-z]"
+						pattern="[A-Za-z\sáéíóú]{1,20}"
 						th:field="*{NInstrumento}" class="form-control"></input>
 				</div>
 
