@@ -57,10 +57,11 @@
 
 				<div class="btn-forma_pago"
 					sec:authorize="hasRole('ROLE_ADMINISTRADOR')">
-					<a class="nav-link dropdown-toggle"
-						id="navbarDropdownMenuLink" role="
-						button" data-bs-toggle="dropdown" aria-expanded="false"
-						th:href="@{/fforma_pagos/new}">Método de pago</a>
+					<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
+						role="
+						button" data-bs-toggle="dropdown"
+						aria-expanded="false" th:href="@{/fforma_pagos/new}">Método de
+						pago</a>
 					<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 						<li><a class="dropdown-item" th:href="@{/fforma_pagos/new}">Registrar</a></li>
 						<li><a class="dropdown-item" th:href="@{/fforma_pagos/list}">Listar</a></li>
@@ -112,7 +113,14 @@
 
 				<div class="btn-duenios"
 					sec:authorize="hasRole('ROLE_ADMINISTRADOR')">
-					<a th:href="@{/dduenios/new}">Dueño</a>
+					<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
+						role="
+						button" data-bs-toggle="dropdown"
+						aria-expanded="false" th:href="@{/dduenios/new}">Dueño</a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<li><a class="dropdown-item" th:href="@{/dduenios/new}">Registrar</a></li>
+						<li><a class="dropdown-item" th:href="@{/dduenios/list}">Listar</a></li>
+					</ul>
 				</div>
 
 				<div class="nav-item dropdown"
@@ -136,7 +144,15 @@
 
 				<div class="btn-usuarios"
 					sec:authorize="hasRole('ROLE_ADMINISTRADOR')">
-					<a th:href="@{/uusuarios/new}">Usuarios</a>
+					<a class="nav-link dropdown-toggle" href="#"
+						id="navbarDropdownMenuLink" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false"> Usuario</a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<li><a class="dropdown-item"
+							th:href="@{/uusuarios/new}">Registrar</a></li>
+						<li><a class="dropdown-item"
+							th:href="@{/uusuarios/list}">Listar</a></li>
+					</ul>
 				</div>
 
 				<div class="btn-sala" sec:authorize="hasRole('ROLE_DUEÑO') ">
