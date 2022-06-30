@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head th:replace="master/sidebar :: head">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<header th:replace="master/sidebar :: header"></header>
+	<div class="container">
+		<br>
+		<div class="title"
+			style="font-family: 'Roboto Condensed', sans-serif; font-size: 150%">Reporte cantidad de pagos por forma de pago</div>
+		<br>
+		<div>
+			<div class="table-responsive configtable">
+				<table class="table table-white" >
+					<thead>
+						<tr>
+							<th>Forma de Pago</th>
+							<th>Cantidad de Pagos</th>
+						</tr>
+					</thead>
+					<tbody id="pagosformas-list">
+						<tr th:each="r:${listaPagosForma}">
+							<td th:text="${r[0]}"></td>
+							<td th:text="${r[1]}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
