@@ -38,7 +38,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 					.access("hasRole('ROLE_ADMINISTRADOR') or hasRole('ROLE_MUSICO') or hasRole('ROLE_DUEÑO')")
 					.antMatchers("/mmarca_instrumentos/**").access("hasRole('ROLE_ADMINISTRADOR')")
 					.antMatchers("/ppublicaciones/**").access("hasRole('ROLE_MUSICO') or hasRole('ROLE_DUEÑO')")
-					.antMatchers("/rreservas/**").access("hasRole('ROLE_MUSICO') or hasRole('ROLE_DUEÑO')")
+					.antMatchers("/rreservas/**").access("hasRole('ROLE_MUSICO') or hasRole('ROLE_DUEÑO') or hasRole('ROLE_ADMINISTRADOR')")
 					.antMatchers("/ttipoinstrumentos/**").access("hasRole('ROLE_ADMINISTRADOR')").and().formLogin()
 					.successHandler(successHandler).loginPage("/login").loginProcessingUrl("/login")
 					.defaultSuccessUrl("/fforma_pagos/new").permitAll().and().logout().logoutSuccessUrl("/login")
