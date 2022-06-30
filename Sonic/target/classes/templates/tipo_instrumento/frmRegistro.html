@@ -21,7 +21,7 @@
 						placeholder="Ejm: Viento" required
 						oninvalid="this.setCustomValidity('Ingrese el tipo del instrumento')"
 						oninput="this.setCustomValidity('')" type="text"
-						pattern="[A-Za-z]+" th:field="*{NTipoInstrumento}"
+						pattern="[A-Za-z\sáéíóú]{1,20}" th:field="*{NTipoInstrumento}"
 						class="form-control"></input>
 				</div>
 				<br>
