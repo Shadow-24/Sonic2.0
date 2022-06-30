@@ -20,18 +20,23 @@ public class Calificacion {
 	@JoinColumn(name = "CEstudio")
 	private Estudio estudio;
 
+	@ManyToOne
+	@JoinColumn(name = "CUsuario")
+	private Usuario usuario;
+
 	@Column(name = "QEstrellas")
-	private int QEstrellas;
+	private float QEstrellas;
 
 	public Calificacion() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Calificacion(int cCalificacion, Estudio estudio, int qEstrellas) {
+	public Calificacion(int cCalificacion, Estudio estudio, Usuario usuario, float qEstrellas) {
 		super();
 		CCalificacion = cCalificacion;
 		this.estudio = estudio;
+		this.usuario = usuario;
 		QEstrellas = qEstrellas;
 	}
 
@@ -51,12 +56,19 @@ public class Calificacion {
 		this.estudio = estudio;
 	}
 
-	public int getQEstrellas() {
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public float getQEstrellas() {
 		return QEstrellas;
 	}
 
-	public void setQEstrellas(int qEstrellas) {
+	public void setQEstrellas(float qEstrellas) {
 		QEstrellas = qEstrellas;
 	}
-
 }

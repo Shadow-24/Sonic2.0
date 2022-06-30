@@ -10,7 +10,7 @@
 	<div class="container">
 		<br>
 		<div class="title"
-			style="font-family: 'Roboto Condensed', sans-serif; font-size: 150%">Lista
+			style="font-family: 'Roboto Condensed', sans-serif; font-size: 150%">Reporte
 			de Calificaciones</div>
 		<br>
 		<div>
@@ -18,26 +18,14 @@
 				<table class="table table-white">
 					<thead>
 						<tr>
-							<th>ID</th>
-							<th>Usuario</th>
 							<th>Estudio</th>
-							<th>Estrellas</th>
-							<th>Operaciones</th>
+							<th>Promedio</th>
 						</tr>
 					</thead>
 					<tbody id="calificacion-list">
-						<tr th:each="s:${listaCalificacion}">
-							<td th:text="${s.CCalificacion}"></td>
-							<td th:text="${s.usuario.NUserName}"></td>
-							<td th:text="${s.estudio.NEstudio}"></td>
-							<td th:text="${s.QEstrellas}"></td>
-
-							<td><a
-								th:href="@{/ccalificaciones/delete?id=}+${s.CCalificacion}">
-									Eliminar</a> <br> <a
-								th:href="@{'/ccalificaciones/goupdate/'+${s.CCalificacion}}">
-									Actualizar </a></td>
-
+						<tr th:each="s:${listaPromedioCalificacion}">
+							<td th:text="${s[0]}"></td>
+							<td th:text="${s[1]}"></td>
 						</tr>
 					</tbody>
 				</table>
