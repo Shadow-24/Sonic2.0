@@ -90,4 +90,11 @@ public class PublicacionController {
 		publiService.update(publicacion);
 		return "redirect:/ppublicaciones/list";
 	}
+
+	@RequestMapping("/reportepublicacion")
+	public String publicacionesxUsuario(Map<String, Object> model) {
+
+		model.put("listapublicacionesxusuario", publiService.publicacionesxUsuario());
+		return "publicacion/reporte";
+	}
 }
