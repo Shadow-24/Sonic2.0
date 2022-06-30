@@ -40,4 +40,9 @@ public class CalificacionServiceImpl implements ICalificacionService {
 		calificacionRepository.save(calificacion);
 	}
 
+	@Override
+	public List<String[]> PromedioCalificacion() {
+		return calificacionRepository.PromedioCalificacion();
+	}
+
 }

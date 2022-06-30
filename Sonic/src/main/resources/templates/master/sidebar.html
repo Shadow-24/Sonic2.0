@@ -25,72 +25,107 @@
 				<div id="title">
 					<span>Bienvenido</span>
 				</div>
-
 			</div>
-
 
 			<div id="profile">
 				<div id="photo">
 					<img src="/images/imagen_perfil.jpg" width="100px">
 				</div>
 				<div id="name">
-					<span>Daniel</span>
+					<span>Anderson Tapia</span>
 				</div>
 			</div>
 
 			<div id="menu-items">
 
-				<div class="btn-publicaciones"
-					sec:authorize="hasRole('ROLE_MUSICO') or hasRole('ROLE_DUEÑO') ">
-					<a th:href="@{/ppublicaciones/new}">Publicación</a>
+				<div class="btn-usuarios"
+					sec:authorize="hasRole('ROLE_ADMINISTRADOR')">
+					<a class="nav-link dropdown-toggle" href="#"
+						id="navbarDropdownMenuLink" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false"> Usuario</a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<li><a class="dropdown-item" th:href="@{/uusuarios/new}">Registrar</a></li>
+						<li><a class="dropdown-item" th:href="@{/uusuarios/list}">Listar</a></li>
+					</ul>
 				</div>
 
-				<div class="btn-comentarios"
-					sec:authorize="hasRole('ROLE_MUSICO') or hasRole('ROLE_DUEÑO') ">
-					<a th:href="@{/ccomentarios/new}">Comentarios</a>
-				</div>
-
-				<div class="btn-reserva"
-					sec:authorize="hasRole('ROLE_MUSICO') or hasRole('ROLE_DUEÑO') ">
-					<a th:href="@{/rreservas/new}">Reserva</a>
-				</div>
-
-				<div class="btn-forma_pago"
+				<div class="btn-musico"
 					sec:authorize="hasRole('ROLE_ADMINISTRADOR')">
 					<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
 						role="
 						button" data-bs-toggle="dropdown"
-						aria-expanded="false" th:href="@{/fforma_pagos/new}">Método de
-						pago</a>
+						aria-expanded="false" th:href="@{/dduenios/new}">Músico</a>
 					<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-						<li><a class="dropdown-item" th:href="@{/fforma_pagos/new}">Registrar</a></li>
-						<li><a class="dropdown-item" th:href="@{/fforma_pagos/list}">Listar</a></li>
-						<li><a class="dropdown-item"
-							th:href="@{/fforma_pagos/report10}">Reporte</a></li>
+						<li><a class="dropdown-item" th:href="@{/mmusicos/new}">Registrar</a></li>
+						<li><a class="dropdown-item" th:href="@{/mmusicos/list}">Listar</a></li>
+
 					</ul>
 				</div>
-				
-				<div class="btn-pago"
+
+				<div class="btn-duenios"
 					sec:authorize="hasRole('ROLE_ADMINISTRADOR')">
 					<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
 						role="
 						button" data-bs-toggle="dropdown"
-						aria-expanded="false" th:href="@{/ppagos/new}">Pago</a>
+						aria-expanded="false" th:href="@{/dduenios/new}">Dueño</a>
 					<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-						<li><a class="dropdown-item" th:href="@{/ppagos/new}">Registrar</a></li>
-						<li><a class="dropdown-item" th:href="@{/ppagos/list}">Listar</a></li>
+						<li><a class="dropdown-item" th:href="@{/dduenios/new}">Registrar</a></li>
+						<li><a class="dropdown-item" th:href="@{/dduenios/list}">Listar</a></li>
 					</ul>
 				</div>
-				
-				
 
-				<div class="btn-distritos"
-					sec:authorize="hasRole('ROLE_ADMINISTRADOR')">
-					<a th:href="@{/ddistritos/new}">Distrito</a>
+				<div class="btn-calificaciones"
+					sec:authorize="hasRole('ROLE_MUSICO') ">
+					<a th:href="@{/ccalificaciones/new}">Calificacion</a>
 				</div>
 
-				<div class="btn-estudios" sec:authorize="hasRole('ROLE_DUEÑO') ">
-					<a th:href="@{/eestudios/new}">Estudio</a>
+				<div class="btn-listacalificaciones"
+					sec:authorize="hasRole('ROLE_ADMINISTRADOR') or hasRole('ROLE_DUEÑO') ">
+					<a th:href="@{/ccalificaciones/list}">Lista de Calificaciones</a>
+				</div>
+
+				<div class="btn-listacalificaciones"
+					sec:authorize="hasRole('ROLE_ADMINISTRADOR') or hasRole('ROLE_DUEÑO') ">
+					<a th:href="@{/ccalificaciones/reporte4}">Reporte de
+						Calificaciones</a>
+				</div>
+
+				<div class="nav-item dropdown"
+					sec:authorize="hasRole('ROLE_DUEÑO') or hasRole('ROLE_ADMINISTRADOR')">
+					<a class="nav-link dropdown-toggle" href="#"
+						id="navbarDropdownMenuLink" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false">Estudio</a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<li><a sec:authorize="hasRole('ROLE_DUEÑO')"
+							class="dropdown-item" th:href="@{/eestudios/new}">Registrar</a></li>
+						<li><a sec:authorize="hasRole('ROLE_ADMINISTRADOR')"
+							class="dropdown-item" th:href="@{/eestudios/list}">Listar</a></li>
+					</ul>
+				</div>
+
+				<div class="nav-item dropdown"
+					sec:authorize="hasRole('ROLE_ADMINISTRADOR') or hasRole('ROLE_DUEÑO')">
+					<a class="nav-link dropdown-toggle" href="#"
+						id="navbarDropdownMenuLink" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false">Salas</a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<li><a
+							sec:authorize="hasRole('ROLE_ADMINISTRADOR') or hasRole('ROLE_DUEÑO')"
+							class="dropdown-item" th:href="@{/ssalas/new}">Registrar</a></li>
+						<li><a sec:authorize="hasRole('ROLE_ADMINISTRADOR')"
+							class="dropdown-item" th:href="@{/ssalas/list}">Listar</a></li>
+					</ul>
+				</div>
+
+				<div class="nav-item dropdown"
+					sec:authorize="hasRole('ROLE_ADMINISTRADOR')">
+					<a class="nav-link dropdown-toggle" href="#"
+						id="navbarDropdownMenuLink" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false">Distrito</a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<li><a class="dropdown-item" th:href="@{/ddistritos/new}">Registrar</a></li>
+						<li><a class="dropdown-item" th:href="@{/ddistritos/list}">Listar</a></li>
+					</ul>
 				</div>
 
 				<div class="nav-item dropdown"
@@ -105,7 +140,7 @@
 				</div>
 
 				<div class="nav-item dropdown"
-					sec:authorize="hasRole('ROLE_ADMINISTRADOR') or hasRole('ROLE_DUEÑO') ">
+					sec:authorize="hasRole('ROLE_ADMINISTRADOR')">
 					<a class="nav-link dropdown-toggle" href="#"
 						id="navbarDropdownMenuLink" role="button"
 						data-bs-toggle="dropdown" aria-expanded="false">Marca de
@@ -117,23 +152,6 @@
 							th:href="@{/mmarca_instrumentos/list}">Listar</a></li>
 						<li><a class="dropdown-item"
 							th:href="@{/mmarca_instrumentos/reporte1}">Reporte</a></li>
-					</ul>
-				</div>
-
-				<div class="btn-musicos"
-					sec:authorize="hasRole('ROLE_ADMINISTRADOR')">
-					<a th:href="@{/mmusicos/new}">Músico</a>
-				</div>
-
-				<div class="btn-duenios"
-					sec:authorize="hasRole('ROLE_ADMINISTRADOR')">
-					<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
-						role="
-						button" data-bs-toggle="dropdown"
-						aria-expanded="false" th:href="@{/dduenios/new}">Dueño</a>
-					<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-						<li><a class="dropdown-item" th:href="@{/dduenios/new}">Registrar</a></li>
-						<li><a class="dropdown-item" th:href="@{/dduenios/list}">Listar</a></li>
 					</ul>
 				</div>
 
@@ -151,32 +169,62 @@
 					</ul>
 				</div>
 
-				<div class="btn-tipo_usuarios"
-					sec:authorize="hasRole('ROLE_ADMINISTRADOR')">
-					<a th:href="@{/ttipousuarios/new}">Tipo de Usuario</a>
+				<div class="btn-publicaciones"
+					sec:authorize="hasRole('ROLE_MUSICO') or hasRole('ROLE_DUEÑO') ">
+					<a th:href="@{/ppublicaciones/new}">Publicación</a>
 				</div>
 
-				<div class="btn-usuarios"
-					sec:authorize="hasRole('ROLE_ADMINISTRADOR')">
-					<a class="nav-link dropdown-toggle" href="#"
-						id="navbarDropdownMenuLink" role="button"
-						data-bs-toggle="dropdown" aria-expanded="false"> Usuario</a>
+				<div class="btn-comentarios"
+					sec:authorize="hasRole('ROLE_MUSICO') or hasRole('ROLE_DUEÑO') ">
+					<a th:href="@{/ccomentarios/new}">Comentarios</a>
+				</div>
+
+				<div class="btn-forma_pago"
+					sec:authorize="hasRole('ROLE_ADMINISTRADOR') or hasRole('ROLE_MUSICO')">
+					<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
+						role="
+						button" data-bs-toggle="dropdown"
+						aria-expanded="false" th:href="@{/fforma_pagos/new}">Reserva</a>
 					<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<li><a class="dropdown-item" th:href="@{/rreservas/new}">Registrar</a></li>
+						<li><a class="dropdown-item" th:href="@{/rreservas/list}">Listar</a></li>
 						<li><a class="dropdown-item"
-							th:href="@{/uusuarios/new}">Registrar</a></li>
-						<li><a class="dropdown-item"
-							th:href="@{/uusuarios/list}">Listar</a></li>
+							th:href="@{/fforma_pagos/reporte10}">Reporte</a></li>
 					</ul>
 				</div>
 
-				<div class="btn-sala" sec:authorize="hasRole('ROLE_DUEÑO') ">
-					<a th:href="@{/ssalas/new}">Salas</a>
+				<div class="btn-forma_pago"
+					sec:authorize="hasRole('ROLE_ADMINISTRADOR')">
+					<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
+						role="
+						button" data-bs-toggle="dropdown"
+						aria-expanded="false" th:href="@{/fforma_pagos/new}">Método de
+						pago</a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<li><a class="dropdown-item" th:href="@{/fforma_pagos/new}">Registrar</a></li>
+						<li><a class="dropdown-item" th:href="@{/fforma_pagos/list}">Listar</a></li>
+						<li><a class="dropdown-item"
+							th:href="@{/fforma_pagos/reporte10}">Reporte</a></li>
+					</ul>
 				</div>
 
-				<div class="btn-edit_perfil"
-					sec:authorize="hasRole('ROLE_MUSICO') or hasRole('ROLE_DUEÑO') ">
-					<a th:href="@{#}">Editar perfil</a>
+				<div class="btn-pago"
+					sec:authorize="hasRole('ROLE_ADMINISTRADOR') or hasRole('ROLE_MUSICO')">
+					<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
+						role="
+						button" data-bs-toggle="dropdown"
+						aria-expanded="false" th:href="@{/ppagos/new}">Pago</a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<li><a class="dropdown-item" th:href="@{/ppagos/new}">Registrar</a></li>
+						<li><a class="dropdown-item" th:href="@{/ppagos/list}">Listar</a></li>
+					</ul>
 				</div>
+
+
+
+
+
+
 
 				<div class="btn-cerrar_sesion">
 					<a th:href="@{@{/logout}}">Cerrar sesión</a>
