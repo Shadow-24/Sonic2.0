@@ -90,7 +90,8 @@ body {
 
 #sidemenu #profile #name {
 	margin-top: -100px;
-	margin-left: -55px;
+	margin-left: -123px;
+	width: 500px;
 }
 
 #sidemenu #menu-items {
@@ -107,12 +108,12 @@ body {
 	vertical-align: middle;
 	overflow: hidden;
 	display: inline-block;
-	vertical-align: middle;
 	text-align: center;
-	background: white;
-	vertical-align: middle;
 	background: white;
 	width: 225px;
 	color: black;
+<<<<<<< Updated upstream
 	margin-left: -3px;
+=======
+>>>>>>> Stashed changes
 }

@@ -1,13 +1,18 @@
 <!DOCTYPE html>
+<<<<<<< Updated upstream
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head th:replace="master/master :: head">
+=======
+<html xmlns:th="http://thymeleaf.org">
+<head th:replace="master/sidebar :: head">
+>>>>>>> Stashed changes
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<header th:replace="master/master :: header"></header>
+	<header th:replace="master/sidebar :: header"></header>
 	<div class="container">
 		<br>
 		<div align="center"
@@ -41,23 +46,42 @@
 				<br>
 				<div class="col-sm-12">
 					<label class="form-label">Fecha: </label> <input type="date"
-						th:field="*{Fecha}" class="form-control"></input>
+						required="" max=2022-06-30 th:field="*{Fecha}"
+						class="form-control"></input>
 				</div>
 
 				<br>
 				<div class="col-sm-12">
 					<label class="form-label">Cantidad de horas: </label> <input
-						type="text" th:field="*{QCant_Horas}" class="form-control"></input>
+						required="" min=1 type="text" th:field="*{QCant_Horas}"
+						class="form-control"></input>
 				</div>
 
 				<br>
 				<div class="col-sm-12">
 					<label class="form-label">Cantidad de personas: </label> <input
-						type="text" th:field="*{QCant_Personas}" class="form-control"></input>
+						required="" min=10 value="1" type="text"
+						th:field="*{QCant_Personas}" class="form-control"></input>
 				</div>
 
 				<br>
 				<div class="col-sm-12">
+<<<<<<< Updated upstream
+=======
+					<label class="form-label">Código de Pago: </label> <input
+						required="" type="text" th:field="*{CPago}" class="form-control"></input>
+				</div>
+
+				<br>
+				<div class="col-sm-12">
+					<label class="form-label">Código de Estudio: </label> <input
+						required="" type="text" th:field="*{CEstudio}"
+						class="form-control"></input>
+				</div>
+
+				<br>
+				<div class="col-sm-12">
+>>>>>>> Stashed changes
 					<input type="submit" value="Registrar" class="btn btn-dark"></input>
 				</div>
 			</form>
