@@ -20,14 +20,16 @@ public class Reserva {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int CReserva;
 
-	@ManyToOne
-	@JoinColumn(name = "CEstudio")
-	private Estudio estudio;
+	@Column(name = "CEstudio", nullable = false)
+	private int CEstudio;
+
+	@Column(name = "CPago", nullable = false)
+	private int CPago;
 
 	@ManyToOne
-	@JoinColumn(name = "CMusico")
-	private Musico musico;
-	
+	@JoinColumn(name = "CUsuario")
+	private Usuario usuario;
+
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "Fecha", nullable = false)
 	private Date Fecha;
@@ -43,14 +45,16 @@ public class Reserva {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Reserva(int cReserva, Estudio estudio, Musico musico, Date fecha, int qCant_Horas, int qCant_Personas) {
+	public Reserva(int cReserva, Date fecha, Usuario usuario, int qCant_Horas, int qCant_Personas, int cPago,
+			int cEstudio) {
 		super();
 		CReserva = cReserva;
-		this.estudio = estudio;
-		this.musico = musico;
 		Fecha = fecha;
+		this.usuario = usuario;
 		QCant_Horas = qCant_Horas;
 		QCant_Personas = qCant_Personas;
+		CPago = cPago;
+		CEstudio = cEstudio;
 	}
 
 	public int getCReserva() {
@@ -61,20 +65,20 @@ public class Reserva {
 		CReserva = cReserva;
 	}
 
-	public Estudio getEstudio() {
-		return estudio;
+	public int getCEstudio() {
+		return CEstudio;
 	}
 
-	public void setEstudio(Estudio estudio) {
-		this.estudio = estudio;
+	public void setCEstudio(int cEstudio) {
+		CEstudio = cEstudio;
 	}
 
-	public Musico getMusico() {
-		return musico;
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-	public void setMusico(Musico musico) {
-		this.musico = musico;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	public Date getFecha() {
@@ -100,4 +104,13 @@ public class Reserva {
 	public void setQCant_Personas(int qCant_Personas) {
 		QCant_Personas = qCant_Personas;
 	}
+
+	public int getCPago() {
+		return CPago;
+	}
+
+	public void setCPago(int cPago) {
+		CPago = cPago;
+	}
+
 }

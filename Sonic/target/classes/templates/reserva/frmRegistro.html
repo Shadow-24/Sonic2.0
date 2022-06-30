@@ -1,13 +1,8 @@
 <!DOCTYPE html>
-<<<<<<< Updated upstream
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-<head th:replace="master/master :: head">
-=======
-<html xmlns:th="http://thymeleaf.org">
 <head th:replace="master/sidebar :: head">
->>>>>>> Stashed changes
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -23,24 +18,20 @@
 
 				<br>
 				<div class="col-sm-12">
-					<label class="form-label">Musico:</label> <select
-						name="selectMusico" class="form-control"
-						th:field="*{musico.CMusico}">
-						<option th:each="d:${listaMusicos}" th:value="${d.CMusico}"
-							th:text="${d.CMusico}"
-							th:select="(${d.CMusico}==*{musico.CMusico})"></option>
+					<label class="form-label">Usuario: </label> <select
+						name="selectUsuario" class="form-control"
+						th:field="*{usuario.CUsuario}">
+						<option th:each="u:${listaUsuarios}" th:value="${u.CUsuario}"
+							th:text="${u.NNombre}+' '+${u.NApellido}"
+							th:selected="(${u.CUsuario}==*{usuario.CUsuario})"></option>
 					</select>
 				</div>
 
 				<br>
 				<div class="col-sm-12">
-					<label class="form-label">Estudio:</label> <select
-						name="selectEstudio" class="form-control"
-						th:field="*{estudio.CEstudio}">
-						<option th:each="d:${listaEstudios}" th:value="${d.CEstudio}"
-							th:text="${d.NEstudio}"
-							th:select="(${d.CEstudio}==*{estudio.CEstudio})"></option>
-					</select>
+					<label class="form-label">Código de Estudio: </label> <input
+						required="" type="text" th:field="*{CEstudio}"
+						class="form-control"></input>
 				</div>
 
 				<br>
@@ -66,23 +57,20 @@
 
 				<br>
 				<div class="col-sm-12">
-<<<<<<< Updated upstream
-=======
 					<label class="form-label">Código de Pago: </label> <input
 						required="" type="text" th:field="*{CPago}" class="form-control"></input>
 				</div>
 
-				<br>
-				<div class="col-sm-12">
-					<label class="form-label">Código de Estudio: </label> <input
-						required="" type="text" th:field="*{CEstudio}"
-						class="form-control"></input>
-				</div>
 
 				<br>
 				<div class="col-sm-12">
->>>>>>> Stashed changes
 					<input type="submit" value="Registrar" class="btn btn-dark"></input>
+				</div>
+
+				<div class="col-sm-12">
+
+					<a th:href="@{/rreservas/list}" class="btn btn-dark">Mostrar
+						mis reservas</a>
 				</div>
 			</form>
 		</div>
