@@ -30,8 +30,8 @@ public class Estudio {
 	private String TDireccion;
 
 	@ManyToOne
-	@JoinColumn(name = "CUsuario")
-	private Usuario usuario;
+	@JoinColumn(name = "CDuenio")
+	private Duenio duenio;
 
 	public Estudio() {
 		super();
@@ -39,14 +39,14 @@ public class Estudio {
 	}
 
 	public Estudio(int cEstudio, String nEstudio, int numTelefono, Distrito distrito, String tDireccion,
-			Usuario usuario) {
+			Duenio duenio) {
 		super();
 		CEstudio = cEstudio;
 		NEstudio = nEstudio;
 		NumTelefono = numTelefono;
 		this.distrito = distrito;
 		TDireccion = tDireccion;
-		this.usuario = usuario;
+		this.duenio = duenio;
 	}
 
 	public int getCEstudio() {
@@ -89,12 +89,13 @@ public class Estudio {
 		TDireccion = tDireccion;
 	}
 
-	public Usuario getUsuario() {
-		return usuario;
+	public Duenio getDuenio() {
+		return duenio;
 	}
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+	public void setDuenio(Duenio duenio) {
+		this.duenio = duenio;
 	}
 
+	
 }

@@ -10,30 +10,36 @@
 	<header th:replace="master/sidebar :: header"></header>
 	<div class="container">
 		<br>
-		<div align="center"
+		<div class="title"
 			style="font-family: 'Roboto Condensed', sans-serif; font-size: 150%">Registrar
 			Estudio</div>
-		<div>
+		<div class="formdiv">
 			<form th:action="@{/eestudios/save}" method="post" th:object="${es}">
 
 				<div class="col-sm-12">
-					<label class="form-label">Estudio:</label> <input type="text"
-						th:field="*{NEstudio}" class="form-control"></input>
+					<label class="form-label">Estudio:</label> <input required
+						oninvalid="this.setCustomValidity('Ingrese el nombre del Estudio')"
+						oninput="this.setCustomValidity('')" type="text"
+						pattern="[A-Za-z]+" th:field="*{NEstudio}" class="form-control"></input>
 				</div>
 
 				<div class="col-sm-12">
 					<label class="form-label">Dueño: </label> <select
 						name="selectUsuario" class="form-control"
-						th:field="*{usuario.CUsuario}">
-						<option th:each="u:${listaUsuarios}" th:value="${u.CUsuario}"
-							th:text="${u.NNombre}+' '+${u.NApellido}"
-							th:selected="(${u.CUsuario}==*{usuario.CUsuario})"></option>
+						th:field="*{duenio.CDuenio}">
+						<option th:each="u:${listaDuenios}" th:value="${u.CDuenio}"
+							th:text="${u.CDuenio}"
+							th:selected="(${u.CDuenio}==*{duenio.CDuenio})"></option>
 					</select>
 				</div>
 
 				<div class="col-sm-12">
 					<label class="form-label">Numero de Telefono:</label> <input
-						type="text" th:field="*{NumTelefono}" class="form-control"></input>
+						required
+						oninvalid="this.setCustomValidity('Ingrese el formato correcto')"
+						oninput="this.setCustomValidity('')" type="text"
+						pattern="[899999999-999999999]+" th:field="*{NumTelefono}"
+						class="form-control"></input>
 				</div>
 
 				<div class="col-sm-12">
@@ -47,8 +53,11 @@
 				</div>
 
 				<div class="col-sm-12">
-					<label class="form-label">Direccion:</label> <input type="text"
-						th:field="*{TDireccion}" class="form-control"></input>
+					<label class="form-label">Direccion:</label> <input required
+						oninvalid="this.setCustomValidity('Ingrese la direccion')"
+						oninput="this.setCustomValidity('')" type="text"
+						pattern="[A-Za-z]+{.}" th:field="*{TDireccion}"
+						class="form-control"></input>
 				</div>
 				<br>
 				<div class="col-sm-12">
