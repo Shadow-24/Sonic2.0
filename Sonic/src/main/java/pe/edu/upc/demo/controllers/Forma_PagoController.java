@@ -88,5 +88,11 @@ public class Forma_PagoController {
 		forma_pagoService.update(form_page);
 		return "redirect:/fforma_pagos/list";
 	}
-
+	
+	@RequestMapping("/reporte2")
+	public String instrumentoMarca(Map<String,Object> model) {
+		
+		model.put("listaPagoForma", forma_pagoService.pagoForma());
+		return "forma_pago/report10";
+	}
 }
