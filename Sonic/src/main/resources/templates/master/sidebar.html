@@ -57,7 +57,16 @@
 
 				<div class="btn-forma_pago"
 					sec:authorize="hasRole('ROLE_ADMINISTRADOR')">
-					<a th:href="@{/fforma_pagos/new}">Método de pago</a>
+					<a class="nav-link dropdown-toggle"
+						id="navbarDropdownMenuLink" role="
+						button" data-bs-toggle="dropdown" aria-expanded="false"
+						th:href="@{/fforma_pagos/new}">Método de pago</a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<li><a class="dropdown-item" th:href="@{/fforma_pagos/new}">Registrar</a></li>
+						<li><a class="dropdown-item" th:href="@{/fforma_pagos/list}">Listar</a></li>
+						<li><a class="dropdown-item"
+							th:href="@{/fforma_pagos/reporte10}">Reporte</a></li>
+					</ul>
 				</div>
 
 				<div class="btn-distritos"
@@ -91,7 +100,7 @@
 							th:href="@{/mmarca_instrumentos/new}">Registrar</a></li>
 						<li><a class="dropdown-item"
 							th:href="@{/mmarca_instrumentos/list}">Listar</a></li>
-							<li><a class="dropdown-item"
+						<li><a class="dropdown-item"
 							th:href="@{/mmarca_instrumentos/reporte1}">Reporte</a></li>
 					</ul>
 				</div>

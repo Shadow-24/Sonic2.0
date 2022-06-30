@@ -16,4 +16,6 @@ public interface IForma_PagoService {
 	Optional<Forma_Pago> listId(int idForma_Pago);
 
 	public void update(Forma_Pago form_page);
+	
+	public List<String[]>pagoForma();
 }

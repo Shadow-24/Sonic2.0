@@ -44,4 +44,10 @@ public class Forma_PagoServiceImpl implements IForma_PagoService {
 		forma_pagoRepository.save(form_page);
 	}
 
+	@Override
+	public List<String[]> pagoForma() {
+		// TODO Auto-generated method stub
+		return forma_pagoRepository.pagoForma();
+	}
+
 }
