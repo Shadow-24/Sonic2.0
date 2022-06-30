@@ -92,9 +92,9 @@ public class PublicacionController {
 	}
 
 	@RequestMapping("/reportepublicacion")
-	public String publicacionesxUsuario(Map<String, Object> model) {
+	public String comentariosxPublicacion(Map<String, Object> model) {
 
-		model.put("listapublicacionesxusuario", publiService.publicacionesxUsuario());
+		model.put("listacomentariosxpublicacion", publiService.comentariosxPublicacion());
 		return "publicacion/reporte";
 	}
 }
