@@ -87,4 +87,11 @@ public class Marca_InstrumentoController {
 		marca_instrumentoService.update(form_page);
 		return "redirect:/mmarca_instrumentos/list";
 	}
+	
+	@RequestMapping("/reporte1")
+	public String instrumentoMarca(Map<String,Object> model) {
+		
+		model.put("listaInstrumentosMarca", marca_instrumentoService.instrumentoMarca());
+		return "marca_instrumento/report1";
+	}
 }

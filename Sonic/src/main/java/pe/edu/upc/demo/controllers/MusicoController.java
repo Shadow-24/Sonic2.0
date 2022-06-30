@@ -22,7 +22,6 @@ import pe.edu.upc.demo.serviceinterfaces.IUsuarioService;
 @Controller
 @RequestMapping("/mmusicos")
 public class MusicoController {
-
 	@Autowired
 	private IMusicoService musicoService;
 
@@ -31,7 +30,6 @@ public class MusicoController {
 
 	@GetMapping("/new")
 	public String newMusico(Model model) {
-
 		model.addAttribute("mu", new Musico());
 		model.addAttribute("listaUsuarios", usuarioService.list());
 		return "/musico/frmRegistro";
@@ -39,7 +37,6 @@ public class MusicoController {
 
 	@PostMapping("/save")
 	public String saveMusico(@Valid Musico musico, BindingResult binRes, Model model) {
-
 		if (binRes.hasErrors()) {
 			return "musico/frmRegistro";
 		} else {
@@ -51,19 +48,16 @@ public class MusicoController {
 
 	@GetMapping("/list")
 	public String listMusico(Model model) {
-
 		try {
 			model.addAttribute("listaMusicos", musicoService.list());
 		} catch (Exception e) {
 			model.addAttribute("error", e.getMessage());
 		}
-
 		return "/musico/frmLista";
 	}
 
 	@RequestMapping("/delete")
 	public String deleteMusico(Map<String, Object> model, @RequestParam(value = "id") Integer id) {
-
 		try {
 			if (id != null && id > 0) {
 				musicoService.delete(id);
@@ -72,24 +66,20 @@ public class MusicoController {
 		} catch (Exception e) {
 			model.put("error", e.getMessage());
 		}
-
 		return "musico/frmLista";
 	}
 
 	@RequestMapping("/goupdate/{id}")
 	public String goUpdateMusico(@PathVariable int id, Model model) {
-
 		Optional<Musico> objMusico = musicoService.listId(id);
 		model.addAttribute("music", objMusico.get());
-
+		model.addAttribute("listaUsuarios", usuarioService.list());
 		return "musico/frmActualiza";
 	}
 
 	@PostMapping("/update")
 	public String updateMusico(Musico musico) {
-
 		musicoService.update(musico);
 		return "redirect:/mmusicos/list";
 	}
-
 }

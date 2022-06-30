@@ -9,15 +9,33 @@ body {
 	font-size: 18px;
 	padding: 0;
 	margin: 0;
-	margin-left: 500px;
-	margin-top: -5px;
+	margin-left: 400px;
+	margin-top: 10px;
 }
 
 .body-expanded {
 	margin-left: 50px;
 }
 
+.configtable{
+	width: 1000px;
+	margin-right: 500px;
+}
+
+.title {
+	width: 600px;
+	margin-left: 350px;
+}
+
+.formdiv{
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	margin-left: 350px;
+}
 #sidemenu {
+	overflow-y: scroll;
+	overflow-x:hidden;
 	background-color: orange;
 	position: fixed;
 	height: 100%;
@@ -72,7 +90,8 @@ body {
 
 #sidemenu #profile #name {
 	margin-top: -100px;
-	margin-left: -55px;
+	margin-left: -123px;
+	width: 500px;
 }
 
 #sidemenu #menu-items {
@@ -89,13 +108,12 @@ body {
 	vertical-align: middle;
 	overflow: hidden;
 	display: inline-block;
-	vertical-align: middle;
 	text-align: center;
-	background: white;
-	vertical-align: middle;
 	background: white;
 	width: 225px;
 	color: black;
-	margin-left: 15px;
-	margin-left: 15px;
+<<<<<<< Updated upstream
+	margin-left: -3px;
+=======
+>>>>>>> Stashed changes
 }

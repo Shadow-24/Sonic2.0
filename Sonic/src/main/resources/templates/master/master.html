@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:fragment="head">
 <meta charset="UTF-8">
 <title>Sonic</title>
@@ -70,6 +71,19 @@
 									th:href="@{/mmarca_instrumentos/list}">Listar</a></li>
 							</ul></li>
 
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#"
+							id="navbarDropdownMenuLink" role="button"
+							data-bs-toggle="dropdown" aria-expanded="false"
+							style="font-weight: bold; color: #000000"> Tipo de
+								instrumento </a>
+							<ul class="dropdown-menu"
+								aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item"
+									th:href="@{/ttipoinstrumentos/new}">Registrar</a></li>
+								<li><a class="dropdown-item"
+									th:href="@{/ttipoinstrumentos/list}">Listar</a></li>
+							</ul></li>
 
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="#"
@@ -191,8 +205,8 @@
 							style="font-weight: bold; color: #000000"> Dueño </a>
 							<ul class="dropdown-menu"
 								aria-labelledby="navbarDropdownMenuLink">
-								<li><a class="dropdown-item" th:href="@{/ddueños/new}">Registrar</a></li>
-								<li><a class="dropdown-item" th:href="@{/ddueños/list}">Listar</a></li>
+								<li><a class="dropdown-item" th:href="@{/dduenios/new}">Registrar</a></li>
+								<li><a class="dropdown-item" th:href="@{/dduenios/list}">Listar</a></li>
 
 							</ul></li>
 

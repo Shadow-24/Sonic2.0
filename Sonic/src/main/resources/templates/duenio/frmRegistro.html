@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="master/master :: head">
+<meta charset="UTF-8">
+<title>Registro de Dueños</title>
+</head>
+<body>
+	<header th:replace="master/master :: header"></header>
+	<div class="container">
+		<br>
+		<div align="center"
+			style="font-family: 'Roboto Condensed', sans-serif; font-size: 150%">Registrar
+			Dueño</div>
+		<div>
+			<form th:action="@{/dduenios/save}" method="post" th:object="${d}">
+
+				<br>
+				<div class="col-sm-12">
+					<label class="form-label">Dueño: </label> <select
+						name="selectUsuario" class="form-control"
+						th:field="*{usuario.CUsuario}">
+						<option th:each="u:${listaUsuarios}" th:value="${u.CUsuario}"
+							th:text="${u.NNombre}+' '+${u.NApellido}"
+							th:selected="(${u.CUsuario}==*{usuario.CUsuario})"></option>
+					</select>
+				</div>
+
+				<br>
+				<div class="col-sm-12">
+					<input type="submit" value="Registrar" class="btn btn-dark"></input>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

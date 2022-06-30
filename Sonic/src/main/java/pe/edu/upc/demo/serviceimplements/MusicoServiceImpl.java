@@ -19,7 +19,6 @@ public class MusicoServiceImpl implements IMusicoService {
 	@Override
 	public void insert(Musico musico) {
 		musicorepository.save(musico);
-
 	}
 
 	@Override
@@ -29,21 +28,17 @@ public class MusicoServiceImpl implements IMusicoService {
 
 	@Override
 	public void delete(int CMusico) {
-
 		musicorepository.deleteById(CMusico);
 	}
 
 	@Override
 	public Optional<Musico> listId(int CMusico) {
-
 		return musicorepository.findById(CMusico);
 	}
 
 	@Override
 	public void update(Musico musico) {
-
 		musicorepository.save(musico);
-
 	}
 
 }

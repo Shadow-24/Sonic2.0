@@ -1,12 +1,18 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org">
+<<<<<<< Updated upstream
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="master/master :: head">
+=======
+<html xmlns:th="http://thymeleaf.org">
+<head th:replace="master/sidebar :: head">
+>>>>>>> Stashed changes
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 
-	<header th:replace="master/master :: header"></header>
+	<header th:replace="master/sidebar :: header"></header>
 	<div class="container">
 		<br>
 		<div align="center"
@@ -18,12 +24,14 @@
 
 				<br> <label class="form-label">Comentario: </label>
 				<div class="col-sm-12">
-					<input type="text" th:field="*{TComentario}" class="form-control"></input>
+					<input type="text" required="" th:field="*{TComentario}"
+						class="form-control"></input>
 				</div>
 
 				<div class="col-sm-12">
 					<label class="form-label">Fecha: </label> <input type="date"
-						th:field="*{Fecha}" class="form-control"></input>
+						required="" max=2022-06-30 th:field="*{Fecha}"
+						class="form-control"></input>
 				</div>
 
 				<div class="col-sm-12">

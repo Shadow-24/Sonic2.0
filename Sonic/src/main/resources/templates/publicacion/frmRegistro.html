@@ -1,12 +1,21 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org">
+<<<<<<< Updated upstream
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
 <head th:replace="master/master :: head">
+=======
+<html xmlns:th="http://thymeleaf.org" xmlns:p="http://primefaces.org/ui">
+<head th:replace="master/sidebar :: head">
+<link rel="stylesheet" th:href="/css/publicacion.css">
+>>>>>>> Stashed changes
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 </head>
 <body>
 
-	<header th:replace="master/master :: header"></header>
+	<header th:replace="master/sidebar :: header"></header>
 	<div class="container">
 		<br>
 		<div align="center"
@@ -18,7 +27,7 @@
 
 				<div class="col-sm-5">
 					<label class="form-label">Descripción de la publicación: </label> <input
-						placeholder="Ejm. Trabajo" type="text"
+						placeholder="Ejm. Trabajo" required="" type="text"
 						th:field="*{DescPublicacion}" class="form-control"></input>
 				</div>
 
@@ -26,7 +35,7 @@
 
 				<div class="col-sm-12">
 					<label class="form-label">Texto: </label> <input type="text"
-						th:field="*{TextPublicacion}" class="form-control"></input>
+						th:field="*{TextPublicacion}" required="" class="form-control"></input>
 				</div>
 
 				<br>
@@ -45,13 +54,20 @@
 
 				<div class="col-sm-12">
 					<label class="form-label">Cantidad de reacciones: </label> <input
-						type="text" th:field="*{QReacciones}" class="form-control"></input>
+						required="" type="text" th:field="*{QReacciones}" 
+						class="form-control"></input>
 				</div>
 
 				<br>
 
 				<div class="col-sm-12">
 					<input type="submit" value="Registrar" class="btn btn-dark"></input>
+				</div>
+
+				<div class="col-sm-12">
+
+					<a th:href="@{/ppublicaciones/reportepublicacion}"
+						class="btn btn-dark">Mostrar mis publicaciones publicaciones</a>
 				</div>
 			</form>
 		</div>

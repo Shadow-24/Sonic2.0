@@ -16,8 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import pe.edu.upc.demo.entities.Reserva;
+import pe.edu.upc.demo.serviceinterfaces.IEstudioService;
+import pe.edu.upc.demo.serviceinterfaces.IMusicoService;
 import pe.edu.upc.demo.serviceinterfaces.IReservaService;
-import pe.edu.upc.demo.serviceinterfaces.IUsuarioService;
 
 @Controller
 @RequestMapping("/rreservas")
@@ -27,30 +28,32 @@ public class ReservaController {
 	private IReservaService reservaService;
 
 	@Autowired
-	private IUsuarioService usuarioService;
+	private IMusicoService musicoService;
+
+	@Autowired
+	private IEstudioService estService;
 
 	@GetMapping("/new")
 	public String newReserva(Model model) {
 		model.addAttribute("re", new Reserva());
-		model.addAttribute("listaUsuarios", usuarioService.list());
+		model.addAttribute("listaMusicos", musicoService.list());
+		model.addAttribute("listaEstudios", estService.list());
 		return "/reserva/frmRegistro";
 	}
 
 	@PostMapping("/save")
 	public String saveReserva(@Valid Reserva reserva, BindingResult binRes, Model model) {
-
 		if (binRes.hasErrors()) {
 			return "reserva/frmRegistro";
 		} else {
 			reservaService.insert(reserva);
 			model.addAttribute("mensaje", "Se registro correctamente");
-			return "redirect:/rreservas/new";
+			return "redirect:/rreservas/list";
 		}
 	}
 
 	@GetMapping("/list")
 	public String listReserva(Model model) {
-
 		try {
 			model.addAttribute("listaReservas", reservaService.list());
 		} catch (Exception e) {
@@ -61,7 +64,6 @@ public class ReservaController {
 
 	@RequestMapping("/delete")
 	public String deleteReserva(Map<String, Object> model, @RequestParam(value = "id") Integer id) {
-
 		try {
 			if (id != null && id > 0) {
 				reservaService.delete(id);
@@ -70,22 +72,20 @@ public class ReservaController {
 		} catch (Exception e) {
 			model.put("error", e.getMessage());
 		}
-
 		return "reserva/frmLista";
 	}
 
 	@RequestMapping("/goupdate/{id}")
 	public String goUpdateReserva(@PathVariable int id, Model model) {
-
 		Optional<Reserva> objReserva = reservaService.listId(id);
 		model.addAttribute("reser", objReserva.get());
-
+		model.addAttribute("listaMusicos", musicoService.list());
+		model.addAttribute("listaEstudios", estService.list());
 		return "reserva/frmActualiza";
 	}
 
 	@PostMapping("/update")
 	public String updateReserva(Reserva reserva) {
-
 		reservaService.update(reserva);
 		return "redirect:/rreservas/list";
 	}

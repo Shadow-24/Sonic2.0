@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="master/master :: head">
 <meta charset="ISO-8859-1">
 <title>Registro de Distritos</title>
@@ -15,9 +16,9 @@
 			<form id="form-1" th:action="@{/ddistritos/save}" method="post"
 				th:object="${d}">
 				<div class="col-sm-12">
-					<label class="form-label" for="input-1">Nombre del Distrito:</label> <input
-						id="input-1" placeholder="Ejm: La Molina" class="form-control"
-						type="text" th:field="*{NDistrito}" />
+					<label class="form-label" for="input-1">Nombre del
+						Distrito:</label> <input id="input-1" placeholder="Ejm: La Molina"
+						class="form-control" type="text" th:field="*{NDistrito}" />
 				</div>
 				<br>
 

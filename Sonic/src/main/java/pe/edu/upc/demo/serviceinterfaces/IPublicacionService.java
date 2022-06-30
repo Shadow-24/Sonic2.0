@@ -16,4 +16,6 @@ public interface IPublicacionService {
 	Optional<Publicacion> listId(int CPublicacion);
 
 	public void update(Publicacion publi);
+
+	public List<String[]> publicacionesxUsuario();
 }

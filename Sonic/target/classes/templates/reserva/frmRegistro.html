@@ -1,11 +1,18 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org">
+<<<<<<< Updated upstream
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
 <head th:replace="master/master :: head">
+=======
+<html xmlns:th="http://thymeleaf.org">
+<head th:replace="master/sidebar :: head">
+>>>>>>> Stashed changes
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<header th:replace="master/master :: header"></header>
+	<header th:replace="master/sidebar :: header"></header>
 	<div class="container">
 		<br>
 		<div align="center"
@@ -14,50 +21,67 @@
 		<div>
 			<form th:action="@{/rreservas/save}" method="post" th:object="${re}">
 
+				<br>
 				<div class="col-sm-12">
-					<label class="form-label">Usuario: </label> <select
-						name="selectUsuario" class="form-control"
-						th:field="*{usuario.CUsuario}">
-						<option th:each="u:${listaUsuarios}" th:value="${u.CUsuario}"
-							th:text="${u.NNombre}+' '+${u.NApellido}"
-							th:selected="(${u.CUsuario}==*{usuario.CUsuario})"></option>
+					<label class="form-label">Musico:</label> <select
+						name="selectMusico" class="form-control"
+						th:field="*{musico.CMusico}">
+						<option th:each="d:${listaMusicos}" th:value="${d.CMusico}"
+							th:text="${d.CMusico}"
+							th:select="(${d.CMusico}==*{musico.CMusico})"></option>
 					</select>
 				</div>
 
 				<br>
+				<div class="col-sm-12">
+					<label class="form-label">Estudio:</label> <select
+						name="selectEstudio" class="form-control"
+						th:field="*{estudio.CEstudio}">
+						<option th:each="d:${listaEstudios}" th:value="${d.CEstudio}"
+							th:text="${d.NEstudio}"
+							th:select="(${d.CEstudio}==*{estudio.CEstudio})"></option>
+					</select>
+				</div>
 
+				<br>
 				<div class="col-sm-12">
 					<label class="form-label">Fecha: </label> <input type="date"
-						th:field="*{Fecha}" class="form-control"></input>
+						required="" max=2022-06-30 th:field="*{Fecha}"
+						class="form-control"></input>
 				</div>
-				<br>
 
+				<br>
 				<div class="col-sm-12">
 					<label class="form-label">Cantidad de horas: </label> <input
-						type="text" th:field="*{QCant_Horas}" class="form-control"></input>
+						required="" min=1 type="text" th:field="*{QCant_Horas}"
+						class="form-control"></input>
 				</div>
 
 				<br>
-
 				<div class="col-sm-12">
 					<label class="form-label">Cantidad de personas: </label> <input
-						type="text" th:field="*{QCant_Personas}" class="form-control"></input>
+						required="" min=10 value="1" type="text"
+						th:field="*{QCant_Personas}" class="form-control"></input>
 				</div>
 
 				<br>
 				<div class="col-sm-12">
+<<<<<<< Updated upstream
+=======
 					<label class="form-label">Código de Pago: </label> <input
-						type="text" th:field="*{CPago}" class="form-control"></input>
+						required="" type="text" th:field="*{CPago}" class="form-control"></input>
 				</div>
 
 				<br>
 				<div class="col-sm-12">
 					<label class="form-label">Código de Estudio: </label> <input
-						type="text" th:field="*{CEstudio}" class="form-control"></input>
+						required="" type="text" th:field="*{CEstudio}"
+						class="form-control"></input>
 				</div>
 
 				<br>
 				<div class="col-sm-12">
+>>>>>>> Stashed changes
 					<input type="submit" value="Registrar" class="btn btn-dark"></input>
 				</div>
 			</form>

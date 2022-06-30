@@ -11,9 +11,9 @@ public interface IPagoService {
 
 	List<Pago> list();
 
-	public void delete(int idPago);
+	public void delete(int CPago);
 
-	Optional<Pago> listId(int idPago);
+	Optional<Pago> listId(int CPago);
 
 	public void update(Pago pago);
 }

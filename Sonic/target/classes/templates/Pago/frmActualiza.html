@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org">
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
 <head th:replace="master/master :: head">
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -13,28 +15,42 @@
 			style="font-family: 'Roboto Condensed', sans-serif; font-size: 150%">Registrar
 			de Pago</div>
 		<div>
-			<form th:action="@{/ppagos/save}" method="post"
-				th:object="${p}">
+			<form th:action="@{/ppagos/update}" method="post" th:object="${pa}">
 
 				<div class="col-sm-12">
-					<label class="form-label">Reserva: </label> <input
-						placeholder="" type="text" th:field="*{NInstrumento}"
-						class="form-control"></input>
-				</div>
-				
-				<div class="col-sm-12">
-					<label class="form-label">Monto: </label> <input
-						placeholder="" type="text" th:field="*{NInstrumento}"
-						class="form-control"></input>
-				</div>
-				
-				<div class="col-sm-12">
-					<label class="form-label">Método: </label> <input
-						placeholder="" type="text" th:field="*{NInstrumento}"
-						class="form-control"></input>
+					<label class="form-label">ID: </label> <input placeholder=""
+						type="text" th:field="*{CPago}" class="form-control"></input>
 				</div>
 
-				
+				<br>
+				<div class="col-sm-12">
+					<label class="form-label">Codigo De la Reserva:</label> <select
+						name="selectReserva" class="form-control"
+						th:field="*{reserva.CReserva}">
+						<option th:each="d:${listaReservas}" th:value="${d.CReserva}"
+							th:text="${d.CReserva}"
+							th:select="(${d.CReserva}==*{reserva.CReserva})"></option>
+					</select>
+				</div>
+
+				<br>
+				<div class="col-sm-12">
+					<label class="form-label">Metodo de Pago:</label> <select
+						name="selectMetodo" class="form-control"
+						th:field="*{forma_pago.idForma_Pago}">
+						<option th:each="d:${listaForma_pagos}"
+							th:value="${d.idForma_Pago}" th:text="${d.Forma_Pago}"
+							th:select="(${d.idForma_Pago}==*{forma_pago.idForma_Pago})"></option>
+					</select>
+				</div>
+
+				<br>
+				<div class="col-sm-12">
+					<label class="form-label">Monto: </label> <input placeholder=""
+						type="text" th:field="*{QMonto}" class="form-control"></input>
+				</div>
+
+				<br>
 				<div class="col-sm-12">
 					<input type="submit" value="Actualizar" class="btn btn-dark"></input>
 				</div>
