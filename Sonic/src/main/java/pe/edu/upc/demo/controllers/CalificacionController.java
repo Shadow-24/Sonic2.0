@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import pe.edu.upc.demo.entities.Calificacion;
 import pe.edu.upc.demo.serviceinterfaces.ICalificacionService;
 import pe.edu.upc.demo.serviceinterfaces.IEstudioService;
+import pe.edu.upc.demo.serviceinterfaces.IUsuarioService;
 
 @Controller
 @RequestMapping("/ccalificaciones")
@@ -28,10 +29,14 @@ public class CalificacionController {
 	@Autowired
 	private IEstudioService eService;
 
+	@Autowired
+	private IUsuarioService uService;
+
 	@GetMapping("/new")
 	public String newCalificacion(Model model) {
 		model.addAttribute("c", new Calificacion());
 		model.addAttribute("listaEstudios", eService.list());
+		model.addAttribute("listaUsuarios", uService.list());
 		return "/calificacion/frmRegistro";
 	}
 
@@ -42,7 +47,7 @@ public class CalificacionController {
 		} else {
 			cService.insert(objCalificacion);
 			model.addAttribute("mensaje", "Se registró correctamente");
-			return "redirect:/ccalificaciones/list";
+			return "redirect:/ccalificaciones/new";
 		}
 	}
 
@@ -74,6 +79,7 @@ public class CalificacionController {
 		Optional<Calificacion> objPer = cService.listId(id);
 		model.addAttribute("ca", objPer.get());
 		model.addAttribute("listaEstudios", eService.list());
+		model.addAttribute("listaUsuarios", uService.list());
 		return "/calificacion/frmActualiza";
 	}
 
@@ -81,5 +87,11 @@ public class CalificacionController {
 	public String updateSalas(Calificacion es) {
 		cService.update(es);
 		return "redirect:/ccalificaciones/list";
+	}
+
+	@RequestMapping("/reporte4")
+	public String PromedioCalificacion(Map<String, Object> model) {
+		model.put("listaPromedioCalificacion", cService.PromedioCalificacion());
+		return "/calificacion/report1";
 	}
 }

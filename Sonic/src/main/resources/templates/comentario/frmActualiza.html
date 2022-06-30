@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:replace="master/master :: head">
+<head th:replace="master/sidebar:: head">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 
-	<header th:replace="master/master :: header"></header>
+	<header th:replace="master/sidebar :: header"></header>
 	<div class="container">
 		<br>
 		<div align="center"
@@ -32,7 +32,7 @@
 						name="selectUsuario" class="form-control"
 						th:field="*{usuario.CUsuario}">
 						<option th:each="u:${listaUsuarios}" th:value="${u.CUsuario}"
-							th:text="${u.NNombre}+' '+${u.NApellido}"
+							th:text="${u.NNombre}"
 							th:selected="(${u.CUsuario}==*{usuario.CUsuario})"></option>
 					</select>
 				</div>

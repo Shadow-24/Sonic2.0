@@ -96,4 +96,6 @@ public class Estudio {
 	public void setDuenio(Duenio duenio) {
 		this.duenio = duenio;
 	}
+
+	
 }

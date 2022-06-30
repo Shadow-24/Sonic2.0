@@ -2,19 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-<head th:replace="master/master :: head">
+<head th:replace="master/sidebar :: head">
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body>
 
-	<header th:replace="master/master :: header"></header>
+	<header th:replace="master/sidebar :: header"></header>
 	<div class="container">
 		<br>
-		<div align="center"
+		<div class="title"
 			style="font-family: 'Roboto Condensed', sans-serif; font-size: 150%">Actualizar
 			Salas</div>
-		<div>
+		<div class="formdiv">
 			<form th:action="@{/ssalas/save}" method="post" th:object="${sa}">
 
 				<div class="col-sm-12">
@@ -23,8 +23,10 @@
 				</div>
 
 				<div class="col-sm-12">
-					<label class="form-label">Sala:</label> <input type="text"
-						th:field="*{NSalas}" class="form-control"></input>
+					<label class="form-label">Sala:</label> <input required
+						oninvalid="this.setCustomValidity('Ingrese el nombre de la sala')"
+						oninput="this.setCustomValidity('')" type="text"
+						pattern="[A-Za-z]+{.}" th:field="*{NSalas}" class="form-control"></input>
 				</div>
 
 				<div class="col-sm-12">

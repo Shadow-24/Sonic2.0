@@ -2,12 +2,12 @@
 <html xmlns:th="http://thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-<head th:replace="master/master :: head">
+<head th:replace="master/sidebar :: head">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<header th:replace="master/master :: header"></header>
+	<header th:replace="master/sidebar :: header"></header>
 
 	<div class="container">
 		<br>
@@ -16,7 +16,7 @@
 			de Reservas</div>
 		<br>
 		<div>
-			<div class="table-responsive">
+			<div class="table-responsive configtable">
 				<table class="table table-white">
 					<thead>
 						<tr>
@@ -32,8 +32,8 @@
 					<tbody id="reserva-list">
 						<tr th:each="r:${listaReservas}">
 							<td th:text="${r.CReserva}"></td>
-							<td th:text="${r.musico.CMusico}"></td>
-							<td th:text="${r.estudio.NEstudio}"></td>
+							<td th:text="${r.usuario.CUsuario}"></td>
+							<td th:text="${r.CEstudio}"></td>
 							<td th:text="${#dates.format(r.Fecha,'dd/MM/yyyy')}"></td>
 							<td th:text="${r.QCant_Horas}"></td>
 							<td th:text="${r.QCant_Personas}"></td>

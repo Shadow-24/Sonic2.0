@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:replace="master/master :: head">
+<head th:replace="master/sidebar :: head">
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body>
 
-	<header th:replace="master/master :: header"></header>
+	<header th:replace="master/sidebar :: header"></header>
 	<div class="container">
 		<br>
-		<div align="center"
+		<div class="title"
 			style="font-family: 'Roboto Condensed', sans-serif; font-size: 150%">Actualizar
 			Estudio</div>
-		<div>
+		<div class="formdiv">
 			<form th:action="@{/eestudios/save}" method="post" th:object="${est}">
 
 				<div class="col-sm-12">
@@ -22,23 +22,29 @@
 				</div>
 
 				<div class="col-sm-12">
-					<label class="form-label">Estudio:</label> <input type="text"
-						th:field="*{NEstudio}" class="form-control"></input>
+					<label class="form-label">Estudio:</label> <input required
+						oninvalid="this.setCustomValidity('Ingrese el nombre del Estudio')"
+						oninput="this.setCustomValidity('')" type="text"
+						pattern="[A-Za-z]+" th:field="*{NEstudio}" class="form-control"></input>
 				</div>
 
 				<div class="col-sm-12">
-					<label class="form-label">Duenio:</label> <select
-						name="selectDuenio" class="form-control"
+					<label class="form-label">Dueño: </label> <select
+						name="selectUsuario" class="form-control"
 						th:field="*{duenio.CDuenio}">
-						<option th:each="d:${listaDuenios}" th:value="${d.CDuenio}"
-							th:text="${d.CDuenio}"
-							th:select="(${d.CDuenio}==*{duenio.CDuenio})"></option>
+						<option th:each="u:${listaDuenios}" th:value="${u.CDuenio}"
+							th:text="${u.CDuenio}"
+							th:selected="(${u.CDuenio}==*{duenio.CDuenio})"></option>
 					</select>
 				</div>
 
 				<div class="col-sm-12">
 					<label class="form-label">Numero de Telefono:</label> <input
-						type="text" th:field="*{NumTelefono}" class="form-control"></input>
+						required
+						oninvalid="this.setCustomValidity('Ingrese el formato correcto')"
+						oninput="this.setCustomValidity('')" type="text"
+						pattern="[899999999-999999999]+" th:field="*{NumTelefono}"
+						class="form-control"></input>
 				</div>
 
 				<div class="col-sm-12">
@@ -52,8 +58,11 @@
 				</div>
 
 				<div class="col-sm-12">
-					<label class="form-label">Estudio:</label> <input type="text"
-						th:field="*{TDireccion}" class="form-control"></input>
+					<label class="form-label">Direccion:</label> <input required
+						oninvalid="this.setCustomValidity('Ingrese la direccion')"
+						oninput="this.setCustomValidity('')" type="text"
+						pattern="[A-Za-z]+{.}" th:field="*{TDireccion}"
+						class="form-control"></input>
 				</div>
 				<br>
 				<div class="col-sm-12">

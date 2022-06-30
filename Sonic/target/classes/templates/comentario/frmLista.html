@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:replace="master/master :: head">
+<head th:replace="master/sidebar :: head">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<header th:replace="master/master :: header"></header>
+	<header th:replace="master/sidebar :: header"></header>
 
 	<div class="container">
 		<br>
@@ -32,15 +32,15 @@
 							<td th:text="${c.CComentario}"></td>
 							<td th:text="${c.TComentario}"></td>
 							<td th:text="${#dates.format(c.Fecha,'dd/MM/yyyy')}"></td>
-							<td th:text="${c.usuario.NNombre}+' '+${c.usuario.NApellido}"></td>
+							<td th:text="${c.usuario.NNombre}"></td>
 							<td th:text="${c.publicacion.TextPublicacion}"></td>
 
 							<td><a
 								th:href="@{/ccomentarios/delete?id=}+${c.CComentario}">
-									Eliminar </a><br> <a
+									Eliminar </a> <a
 								th:href="@{'/ccomentarios/goupdate/'+${c.CComentario}}">
 									Actualizar </a></td>
-
+							<td>
 						</tr>
 					</tbody>
 				</table>

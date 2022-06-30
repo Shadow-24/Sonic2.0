@@ -1,14 +1,11 @@
 <!DOCTYPE html>
-<<<<<<< Updated upstream
 <html xmlns:th="http://thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-<head th:replace="master/master :: head">
-=======
-<html xmlns:th="http://thymeleaf.org" xmlns:p="http://primefaces.org/ui">
+
 <head th:replace="master/sidebar :: head">
 <link rel="stylesheet" th:href="/css/publicacion.css">
->>>>>>> Stashed changes
+
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
@@ -54,7 +51,7 @@
 
 				<div class="col-sm-12">
 					<label class="form-label">Cantidad de reacciones: </label> <input
-						required="" type="text" th:field="*{QReacciones}" 
+						required="" type="text" th:field="*{QReacciones}"
 						class="form-control"></input>
 				</div>
 
@@ -67,7 +64,7 @@
 				<div class="col-sm-12">
 
 					<a th:href="@{/ppublicaciones/reportepublicacion}"
-						class="btn btn-dark">Mostrar mis publicaciones publicaciones</a>
+						class="btn btn-dark">Mostrar mis publicaciones</a>
 				</div>
 			</form>
 		</div>
