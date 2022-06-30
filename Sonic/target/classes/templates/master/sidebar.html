@@ -69,6 +69,20 @@
 							th:href="@{/fforma_pagos/reporte10}">Reporte</a></li>
 					</ul>
 				</div>
+				
+				<div class="btn-pago"
+					sec:authorize="hasRole('ROLE_ADMINISTRADOR')">
+					<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
+						role="
+						button" data-bs-toggle="dropdown"
+						aria-expanded="false" th:href="@{/ppagos/new}">Pago</a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<li><a class="dropdown-item" th:href="@{/ppagos/new}">Registrar</a></li>
+						<li><a class="dropdown-item" th:href="@{/ppagos/list}">Listar</a></li>
+					</ul>
+				</div>
+				
+				
 
 				<div class="btn-distritos"
 					sec:authorize="hasRole('ROLE_ADMINISTRADOR')">
